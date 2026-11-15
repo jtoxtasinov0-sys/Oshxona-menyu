@@ -50,27 +50,20 @@ def multi(uz, ru, k, en):
     return f"<b>{uz}</b><br>{ru}<br>{ko(k)}<br>{en}"
 
 
-# Old tomon — faqat o'zbekcha, yirik (QR chapda, NFC o'ngda)
-front = page("front", "ELEKTRON MENYU",
-  [qr_way("1-usul · QR", "<b>Kamerani QR kodga qarating</b>"),
-   nfc_way("2-usul · NFC", "<b>Telefonni doiraga tekkizing</b>")],
-  "yoki", "Qanday foydalaniladi?",
-  ["<b>QR kodni skanerlang</b> yoki telefonni <b>NFC doirasiga</b> tekkizing",
-   "Ekranda chiqqan <b>havolani bosing</b>",
-   "Tepada <b>tilni tanlang</b>: O’zbek, Русский, " + ko("한국어") + ", English",
-   "Taomni tanlab, <b>ofitsiantga ayting</b>"],
-  "Русский · " + ko("한국어") + " · English — orqa tomonda ↻")
+# Ikkala tomon bir xil: o'zbekcha birinchi (yirik), keyin ru / ko / en.
+# Orqa tomon ko'zgu: NFC chapda, QR o'ngda — bitta stiker ikkala tomonga xizmat qiladi.
+SUB = "MENYU · МЕНЮ · " + ko("메뉴") + " · MENU"
+OR = "yoki · или · " + ko("또는") + " · or"
+TITLE = "Qanday foydalaniladi? · How to use"
+QR_WAY = qr_way("QR", multi("Kamerani QR kodga qarating", "Наведите камеру на QR-код", "카메라로 QR 코드를 스캔하세요", "Point your camera at the QR code"))
+NFC_WAY = nfc_way("NFC", multi("Telefonni doiraga tekkizing", "Приложите телефон к кругу", "휴대폰을 원에 대세요", "Tap your phone on the circle"))
+STEPS = [multi("Skanerlang yoki tekkizing", "Сканируйте или приложите", "스캔하거나 휴대폰을 대세요", "Scan or tap your phone"),
+         multi("Havolani bosing", "Нажмите на ссылку", "링크를 누르세요", "Tap the link"),
+         multi("Tilni tanlang", "Выберите язык", "언어를 선택하세요", "Choose your language"),
+         multi("Buyurtma bering", "Закажите у официанта", "직원에게 주문하세요", "Order from your waiter")]
 
-# Orqa tomon — o'zbekcha birinchi, keyin ru / ko / en
-# (ko'zgu: NFC chapda, QR o'ngda — bitta stiker ikkala tomonga xizmat qiladi)
-back = page("back", "MENYU · МЕНЮ · " + ko("메뉴") + " · MENU",
-  [nfc_way("NFC", multi("Telefonni doiraga tekkizing", "Приложите телефон к кругу", "휴대폰을 원에 대세요", "Tap your phone on the circle")),
-   qr_way("QR", multi("Kamerani QR kodga qarating", "Наведите камеру на QR-код", "카메라로 QR 코드를 스캔하세요", "Point your camera at the QR code"))],
-  "yoki · или · " + ko("또는") + " · or", "Qanday foydalaniladi? · How to use",
-  [multi("Skanerlang yoki tekkizing", "Сканируйте или приложите", "스캔하거나 휴대폰을 대세요", "Scan or tap your phone"),
-   multi("Havolani bosing", "Нажмите на ссылку", "링크를 누르세요", "Tap the link"),
-   multi("Tilni tanlang", "Выберите язык", "언어를 선택하세요", "Choose your language"),
-   multi("Ofitsiantga buyurtma bering", "Закажите у официанта", "직원에게 주문하세요", "Order from your waiter")])
+front = page("front", SUB, [QR_WAY, NFC_WAY], OR, TITLE, STEPS)
+back = page("back", SUB, [NFC_WAY, QR_WAY], OR, TITLE, STEPS)
 
 CSS = r'''
 @page{size:105mm 148mm;margin:0}
@@ -106,13 +99,11 @@ h1{font:700 19.5pt/1 "Playfair Display",serif;margin-top:1.6mm}
   box-shadow:0 0 0 1.2mm rgba(235,207,133,.18),inset 0 .6mm 0 rgba(255,255,255,.5)}
 .nfc svg{width:12.5mm;height:12.5mm}
 .nfc span{font-size:8.5pt;font-weight:800;letter-spacing:.2em}
-.cap{margin-top:2.2mm;text-align:center;font-size:7.6pt;line-height:1.3;color:rgba(255,255,255,.86)}
-.cap b{color:#fff;font-weight:800}
-.back .cap{font-size:6pt;line-height:1.32}
-.back .cap b{font-size:6.8pt;line-height:1.5}
+.cap{margin-top:2.2mm;text-align:center;font-size:6pt;line-height:1.32;color:rgba(255,255,255,.86)}
+.cap b{color:#fff;font-weight:800;font-size:7.3pt;line-height:1.5}
 .or{position:absolute;left:50%;top:2.2mm;transform:translateX(-50%);padding:.9mm 2.4mm;line-height:1.2;border-radius:99mm;white-space:nowrap;
   background:#0A3D33;border:.35mm solid #C9A14A;color:#EBCF85;font-size:6.6pt;font-weight:800}
-.back .or{font-size:6pt;padding:.9mm 2mm}
+.or{font-size:6pt;padding:.9mm 2mm}
 
 .guide{width:100%;margin-top:4mm;padding:3.2mm 3.4mm 3.4mm;border-radius:4mm;background:#FBF7F0;color:#1B2724}
 .guide h2{font:700 10.5pt/1.1 "Playfair Display",serif;color:#0A3D33;text-align:center;margin-bottom:2.6mm}
@@ -121,12 +112,12 @@ h1{font:700 19.5pt/1 "Playfair Display",serif;margin-top:1.6mm}
 .guide li b{color:#0A3D33;font-weight:800}
 .guide i{flex:none;width:5.2mm;height:5.2mm;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:7.4pt;
   color:#fff;background:#0F5B4B;box-shadow:0 0 0 .5mm #EBCF85}
-.back .guide{margin-top:3mm;padding:2.6mm 3mm 2.8mm}
-.back .guide h2{font-size:9pt;margin-bottom:2mm}
-.back .guide ol{gap:1.8mm 2.4mm}
-.back .guide li{font-size:5.7pt;line-height:1.3}
-.back .guide li b{font-size:6.5pt;line-height:1.35}
-.back .guide i{width:4.6mm;height:4.6mm;font-size:6.6pt}
+.guide{margin-top:3.4mm;padding:2.8mm 3.2mm 3mm}
+.guide h2{font-size:9.6pt;margin-bottom:2.2mm}
+.guide ol{gap:2.2mm 2.6mm}
+.guide li{font-size:5.9pt;line-height:1.32}
+.guide li b{font-size:7.2pt;line-height:1.4}
+.guide i{width:5mm;height:5mm;font-size:7pt}
 
 footer{margin-top:auto;display:flex;flex-direction:column;align-items:center;gap:.8mm}
 footer b{font-size:8.6pt;color:#EBCF85;letter-spacing:.02em}

@@ -20,8 +20,7 @@ NFC stiker va QR kod orqali telefonda ochiladigan restoran menyusi.
 ## Chop etish uchun fayllar (`chop-etish/`)
 
 - `stol-kartochka-A6.pdf` — ikki tomonlama stol kartochkasi (105×148 mm, 2 sahifa), bosmaxonaga shu faylni bering
-  - 1-sahifa (old tomon): o’zbekcha — QR, NFC doirasi va “Qanday foydalaniladi?” qo’llanma
-  - 2-sahifa (orqa tomon): o’zbekcha birinchi, keyin ruscha, koreyscha, inglizcha
+  - Ikkala tomon: QR, NFC doirasi va “Qanday foydalaniladi?” qo’llanma — o’zbekcha birinchi, keyin ruscha, koreyscha, inglizcha
   - NFC doiralari ikki tomonda aynan bir-birining orqasida: bitta stiker ikkala tomonga ishlaydi
 - `stol-kartochka-old.png`, `stol-kartochka-orqa.png` — o’sha kartochka rasm ko’rinishida
 - `manba/` — kartochkani boshqa domen bilan qayta yasash uchun skript
