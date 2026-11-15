@@ -1,0 +1,574 @@
+{
+  "version": 1,
+  "updatedAt": "2026-11-15T00:00:00.000Z",
+  "settings": {
+    "soldOut": "show"
+  },
+  "categories": [
+    {
+      "id": "osh",
+      "title": {
+        "uz": "Osh",
+        "ru": "Плов",
+        "ko": "플롭",
+        "en": "Plov"
+      },
+      "chip": {
+        "uz": "Osh",
+        "ru": "Плов",
+        "ko": "플롭",
+        "en": "Plov"
+      },
+      "sub": {
+        "uz": "Dasturxonimiz shohi — qozonda, o’tin olovida",
+        "ru": "Царь нашего дастархана — в казане, на дровах",
+        "ko": "우즈벡 식탁의 왕 — 장작불 가마솥 요리",
+        "en": "The king of our table — cooked in a kazan over wood fire"
+      },
+      "thumb": {
+        "id": "10522937",
+        "pos": "50% 85%"
+      },
+      "items": [
+        {
+          "id": "osh-toy",
+          "n": {
+            "uz": "To’y oshi",
+            "ru": "Свадебный плов",
+            "ko": "잔치 플롭",
+            "en": "Wedding plov"
+          },
+          "d": {
+            "uz": "Qo’y go’shti, devzira guruch, sariq sabzi, no’xat va mayiz bilan",
+            "ru": "Баранина, рис девзира, жёлтая морковь, нут и изюм",
+            "ko": "양고기, 데브지라 쌀, 노란 당근, 병아리콩, 건포도",
+            "en": "Lamb, devzira rice, yellow carrots, chickpeas and raisins"
+          },
+          "p": 13000,
+          "u": "portion",
+          "img": "10522937",
+          "full": true,
+          "tag": "hit",
+          "feat": true,
+          "ribbon": {
+            "uz": "Eng ko’p buyuriladi",
+            "ru": "Хит продаж",
+            "ko": "가장 인기",
+            "en": "Best seller"
+          }
+        }
+      ]
+    },
+    {
+      "id": "shashliklar",
+      "title": {
+        "uz": "Shashliklar",
+        "ru": "Шашлыки",
+        "ko": "샤슬릭",
+        "en": "Shashlik"
+      },
+      "chip": {
+        "uz": "Shashlik",
+        "ru": "Шашлык",
+        "ko": "샤슬릭",
+        "en": "Shashlik"
+      },
+      "sub": {
+        "uz": "Ko’mir olovida · narxi 1 six uchun",
+        "ru": "На углях · цена за 1 шампур",
+        "ko": "숯불구이 · 꼬치 1개 가격",
+        "en": "Charcoal-grilled · price per skewer"
+      },
+      "thumb": "7866189",
+      "items": [
+        {
+          "id": "shashlik-qoy",
+          "n": {
+            "uz": "Qo’y go’shti",
+            "ru": "Из баранины",
+            "ko": "양고기 꼬치",
+            "en": "Lamb"
+          },
+          "d": {
+            "uz": "Yumshoq qo’zichoq go’shti va dumba, piyoz bilan tortiladi",
+            "ru": "Нежная молодая баранина с курдюком, подаётся с луком",
+            "ko": "부드러운 어린 양고기와 꼬리 지방, 양파 곁들임",
+            "en": "Tender young lamb with fat-tail, served with onions"
+          },
+          "p": 7000,
+          "u": "skewer",
+          "img": "7866189",
+          "tag": "hit",
+          "feat": true,
+          "ribbon": {
+            "uz": "Oshpaz tavsiyasi",
+            "ru": "Выбор шефа",
+            "ko": "셰프 추천",
+            "en": "Chef’s choice"
+          }
+        },
+        {
+          "id": "shashlik-mol",
+          "n": {
+            "uz": "Mol go’shti",
+            "ru": "Из говядины",
+            "ko": "소고기 꼬치",
+            "en": "Beef"
+          },
+          "d": {
+            "uz": "Marinadlangan mol go’shti, ziravor va piyoz bilan",
+            "ru": "Маринованная говядина со специями и луком",
+            "ko": "향신료와 양파에 재운 소고기",
+            "en": "Marinated beef with spices and onions"
+          },
+          "p": 6500,
+          "u": "skewer",
+          "img": "17312401"
+        },
+        {
+          "id": "shashlik-jigar",
+          "n": {
+            "uz": "Jigar",
+            "ru": "Печень",
+            "ko": "간 꼬치",
+            "en": "Liver"
+          },
+          "d": {
+            "uz": "Qo’y jigari dumba bilan, ko’mirda pishirilgan",
+            "ru": "Баранья печень с курдюком на углях",
+            "ko": "양 간과 꼬리 지방, 숯불구이",
+            "en": "Lamb liver with fat-tail, grilled over charcoal"
+          },
+          "p": 5000,
+          "u": "skewer",
+          "img": "2233730"
+        },
+        {
+          "id": "shashlik-qiyma",
+          "n": {
+            "uz": "Qiyma kabob",
+            "ru": "Люля-кебаб",
+            "ko": "다진 고기 케밥",
+            "en": "Lula kebab"
+          },
+          "d": {
+            "uz": "Qo’lda maydalangan go’sht, zira va piyoz bilan",
+            "ru": "Рубленое вручную мясо с зирой и луком",
+            "ko": "손으로 다진 고기, 커민과 양파",
+            "en": "Hand-minced meat with cumin and onions"
+          },
+          "p": 5500,
+          "u": "skewer",
+          "img": "14457216"
+        },
+        {
+          "id": "shashlik-tovuq",
+          "n": {
+            "uz": "Tovuq",
+            "ru": "Из курицы",
+            "ko": "닭고기 꼬치",
+            "en": "Chicken"
+          },
+          "d": {
+            "uz": "Tovuq filesi, maxsus sousda marinadlangan",
+            "ru": "Куриное филе в фирменном маринаде",
+            "ko": "특제 소스에 재운 닭가슴살",
+            "en": "Chicken fillet in our signature marinade"
+          },
+          "p": 4500,
+          "u": "skewer",
+          "img": "7474082",
+          "tag": "new"
+        }
+      ]
+    },
+    {
+      "id": "somsalar",
+      "title": {
+        "uz": "Somsalar",
+        "ru": "Самса",
+        "ko": "삼사",
+        "en": "Samsa"
+      },
+      "chip": {
+        "uz": "Somsa",
+        "ru": "Самса",
+        "ko": "삼사",
+        "en": "Samsa"
+      },
+      "sub": {
+        "uz": "Har kuni ertalabdan tandirdan uziladi",
+        "ru": "Каждое утро — свежая из тандыра",
+        "ko": "매일 아침 탄디르 화덕에서 갓 구워냅니다",
+        "en": "Fresh from the tandoor every morning"
+      },
+      "thumb": "36170557",
+      "items": [
+        {
+          "id": "somsa-tandir",
+          "n": {
+            "uz": "Tandir somsa",
+            "ru": "Тандырная самса",
+            "ko": "탄디르 삼사",
+            "en": "Tandoor samsa"
+          },
+          "d": {
+            "uz": "Tandirda pishgan, qo’y go’shti va dumba bilan",
+            "ru": "Из тандыра, с бараниной и курдюком",
+            "ko": "탄디르 화덕에서 구운 양고기 삼사",
+            "en": "Baked in the tandoor with lamb and fat-tail"
+          },
+          "p": 4000,
+          "u": "piece",
+          "img": "36170557",
+          "feat": true,
+          "ribbon": {
+            "uz": "Tandirdan yangi",
+            "ru": "Прямо из тандыра",
+            "ko": "화덕에서 갓 나온",
+            "en": "Fresh from the tandoor"
+          }
+        },
+        {
+          "id": "somsa-goshtli",
+          "n": {
+            "uz": "Go’shtli somsa",
+            "ru": "Самса с мясом",
+            "ko": "고기 삼사",
+            "en": "Meat samsa"
+          },
+          "d": {
+            "uz": "Qatlama xamir, mol go’shti va piyoz",
+            "ru": "Слоёное тесто, говядина и лук",
+            "ko": "바삭한 겹반죽에 소고기와 양파",
+            "en": "Flaky pastry with beef and onions"
+          },
+          "p": 3500,
+          "u": "piece",
+          "img": "23286188"
+        },
+        {
+          "id": "somsa-qovoqli",
+          "n": {
+            "uz": "Qovoqli somsa",
+            "ru": "Самса с тыквой",
+            "ko": "호박 삼사",
+            "en": "Pumpkin samsa"
+          },
+          "d": {
+            "uz": "Shirin qovoq, piyoz va qora murch bilan",
+            "ru": "Сладкая тыква, лук и чёрный перец",
+            "ko": "달콤한 호박, 양파, 후추",
+            "en": "Sweet pumpkin, onions and black pepper"
+          },
+          "p": 3000,
+          "u": "piece",
+          "img": {
+            "id": "14477873",
+            "z": 1.18,
+            "o": "0% 45%"
+          },
+          "tag": "season"
+        }
+      ]
+    },
+    {
+      "id": "suyuq",
+      "title": {
+        "uz": "Suyuq ovqatlar",
+        "ru": "Супы",
+        "ko": "수프",
+        "en": "Soups"
+      },
+      "chip": {
+        "uz": "Suyuq ovqat",
+        "ru": "Супы",
+        "ko": "수프",
+        "en": "Soups"
+      },
+      "sub": {
+        "uz": "Issiq va to’yimli, uy ta’mida",
+        "ru": "Горячие и сытные, как дома",
+        "ko": "따뜻하고 든든한 집밥의 맛",
+        "en": "Hot, hearty and homemade"
+      },
+      "thumb": "1731535",
+      "items": [
+        {
+          "id": "shorva",
+          "n": {
+            "uz": "Sho’rva",
+            "ru": "Шурпа",
+            "ko": "쇼르바",
+            "en": "Shurpa"
+          },
+          "d": {
+            "uz": "Qo’y go’shti, kartoshka, sabzi va no’xatli tiniq sho’rva",
+            "ru": "Прозрачный суп с бараниной, картофелем, морковью и нутом",
+            "ko": "양고기, 감자, 당근, 병아리콩을 넣은 맑은 수프",
+            "en": "Clear lamb soup with potatoes, carrots and chickpeas"
+          },
+          "p": 12000,
+          "u": "bowl",
+          "img": "10338451"
+        },
+        {
+          "id": "mastava",
+          "n": {
+            "uz": "Mastava",
+            "ru": "Мастава",
+            "ko": "마스타바",
+            "en": "Mastava"
+          },
+          "d": {
+            "uz": "Guruch, go’sht va sabzavotli quyuq sho’rva, qatiq bilan",
+            "ru": "Густой суп с рисом, мясом и овощами, с катыком",
+            "ko": "쌀, 고기, 채소를 넣은 걸쭉한 수프와 요거트",
+            "en": "Thick rice soup with meat and vegetables, with yogurt"
+          },
+          "p": 11000,
+          "u": "bowl",
+          "img": "360939"
+        },
+        {
+          "id": "lagmon",
+          "n": {
+            "uz": "Lag’mon",
+            "ru": "Лагман",
+            "ko": "라그몬",
+            "en": "Lagman"
+          },
+          "d": {
+            "uz": "Qo’lda cho’zilgan ugra, go’sht va sabzavotli vaju bilan",
+            "ru": "Тянутая вручную лапша с мясом и овощами",
+            "ko": "손으로 뽑은 면에 고기와 채소 소스",
+            "en": "Hand-pulled noodles with meat and vegetable sauce"
+          },
+          "p": 12000,
+          "u": "bowl",
+          "img": "1731535",
+          "tag": "hit"
+        },
+        {
+          "id": "chuchvara",
+          "n": {
+            "uz": "Chuchvara",
+            "ru": "Чучвара",
+            "ko": "추츠바라",
+            "en": "Chuchvara"
+          },
+          "d": {
+            "uz": "Mayda tugilgan go’shtli chuchvara, qatiq va ko’kat bilan",
+            "ru": "Маленькие пельмени с мясом, катыком и зеленью",
+            "ko": "고기를 넣은 작은 만두, 요거트와 허브",
+            "en": "Small meat dumplings with yogurt and herbs"
+          },
+          "p": 11000,
+          "u": "bowl",
+          "img": "939052"
+        }
+      ]
+    },
+    {
+      "id": "salatlar",
+      "title": {
+        "uz": "Salatlar",
+        "ru": "Салаты",
+        "ko": "샐러드",
+        "en": "Salads"
+      },
+      "chip": {
+        "uz": "Salat",
+        "ru": "Салаты",
+        "ko": "샐러드",
+        "en": "Salads"
+      },
+      "sub": {
+        "uz": "Yangi uzilgan sabzavotlardan",
+        "ru": "Из свежих овощей",
+        "ko": "신선한 채소로 만듭니다",
+        "en": "Made from fresh vegetables"
+      },
+      "thumb": "7954630",
+      "items": [
+        {
+          "id": "achchiq-chuchuk",
+          "n": {
+            "uz": "Achchiq-chuchuk",
+            "ru": "Аччик-чучук",
+            "ko": "아치크추추크",
+            "en": "Achchiq-chuchuk"
+          },
+          "d": {
+            "uz": "Pomidor, bodring, piyoz va achchiq qalampir — osh bilan eng zo’ri",
+            "ru": "Помидоры, огурцы, лук и острый перец — лучший спутник плова",
+            "ko": "토마토, 오이, 양파, 매운 고추 — 플롭과 최고의 궁합",
+            "en": "Tomatoes, cucumber, onion and hot pepper — perfect with plov"
+          },
+          "p": 6000,
+          "u": "portion",
+          "img": "1555814",
+          "tag": "hot",
+          "feat": true,
+          "ribbon": {
+            "uz": "Osh bilan tavsiya",
+            "ru": "Лучше всего к плову",
+            "ko": "플롭과 함께",
+            "en": "Best with plov"
+          }
+        },
+        {
+          "id": "shakarob",
+          "n": {
+            "uz": "Shakarob",
+            "ru": "Шакароб",
+            "ko": "샤카롭",
+            "en": "Shakarob"
+          },
+          "d": {
+            "uz": "Yupqa to’g’ralgan pomidor va piyoz, rayhon bilan",
+            "ru": "Тонко нарезанные помидоры и лук с базиликом",
+            "ko": "얇게 썬 토마토와 양파, 바질",
+            "en": "Thinly sliced tomatoes and onions with basil"
+          },
+          "p": 6000,
+          "u": "portion",
+          "img": "7954630"
+        },
+        {
+          "id": "olivye",
+          "n": {
+            "uz": "Olivye",
+            "ru": "Оливье",
+            "ko": "올리비에",
+            "en": "Olivier salad"
+          },
+          "d": {
+            "uz": "Kartoshka, tuxum, go’sht, tuzlangan bodring va mayonez",
+            "ru": "Картофель, яйца, мясо, солёные огурцы и майонез",
+            "ko": "감자, 달걀, 고기, 피클, 마요네즈",
+            "en": "Potatoes, eggs, meat, pickles and mayonnaise"
+          },
+          "p": 8000,
+          "u": "portion",
+          "img": "14846862"
+        }
+      ]
+    },
+    {
+      "id": "ichimliklar",
+      "list": true,
+      "title": {
+        "uz": "Ichimliklar",
+        "ru": "Напитки",
+        "ko": "음료",
+        "en": "Drinks"
+      },
+      "chip": {
+        "uz": "Ichimlik",
+        "ru": "Напитки",
+        "ko": "음료",
+        "en": "Drinks"
+      },
+      "sub": {
+        "uz": "Choy — suhbat ko’rki",
+        "ru": "Чай — украшение беседы",
+        "ko": "차는 대화의 꽃",
+        "en": "Tea — the heart of every conversation"
+      },
+      "thumb": "15675497",
+      "items": [
+        {
+          "id": "choy-kok",
+          "n": {
+            "uz": "Ko’k choy",
+            "ru": "Зелёный чай",
+            "ko": "녹차",
+            "en": "Green tea"
+          },
+          "d": {
+            "uz": "Choynakda damlangan xushbo’y ko’k choy",
+            "ru": "Ароматный зелёный чай в чайнике",
+            "ko": "주전자에 우린 향긋한 녹차",
+            "en": "Fragrant green tea brewed in a teapot"
+          },
+          "p": 3000,
+          "u": "pot",
+          "img": "15675497"
+        },
+        {
+          "id": "choy-qora",
+          "n": {
+            "uz": "Qora choy",
+            "ru": "Чёрный чай",
+            "ko": "홍차",
+            "en": "Black tea"
+          },
+          "d": {
+            "uz": "Quyuq qora choy, choynakda",
+            "ru": "Крепкий чёрный чай в чайнике",
+            "ko": "진하게 우린 홍차",
+            "en": "Strong black tea in a teapot"
+          },
+          "p": 3000,
+          "u": "pot",
+          "img": "1493080"
+        },
+        {
+          "id": "choy-limon",
+          "n": {
+            "uz": "Limonli choy",
+            "ru": "Чай с лимоном",
+            "ko": "레몬차",
+            "en": "Lemon tea"
+          },
+          "d": {
+            "uz": "Limon bo’laklari va asal bilan",
+            "ru": "С дольками лимона и мёдом",
+            "ko": "레몬 조각과 꿀",
+            "en": "With lemon slices and honey"
+          },
+          "p": 5000,
+          "u": "pot",
+          "img": "14473557"
+        },
+        {
+          "id": "kompot",
+          "n": {
+            "uz": "Kompot",
+            "ru": "Компот",
+            "ko": "콤포트",
+            "en": "Kompot"
+          },
+          "d": {
+            "uz": "Uy kompoti, quritilgan mevalardan",
+            "ru": "Домашний компот из сухофруктов",
+            "ko": "말린 과일로 만든 수제 과일 음료",
+            "en": "Homemade dried-fruit drink"
+          },
+          "p": 6000,
+          "u": "liter",
+          "img": "11066843"
+        },
+        {
+          "id": "ayron",
+          "n": {
+            "uz": "Ayron",
+            "ru": "Айран",
+            "ko": "아이란",
+            "en": "Ayran"
+          },
+          "d": {
+            "uz": "Muzdek qatiq ichimligi, yalpiz bilan",
+            "ru": "Холодный кисломолочный напиток с мятой",
+            "ko": "민트를 넣은 시원한 요거트 음료",
+            "en": "Chilled yogurt drink with mint"
+          },
+          "p": 3000,
+          "u": "half",
+          "img": "6341410"
+        }
+      ]
+    }
+  ]
+}
