@@ -1,10 +1,12 @@
 const { chromium } = require('playwright');
-const OUT = '/home/user/oshxona-menyu/chop-etish/';
+const path = require('path'), os = require('os');
+const OUT = process.env.OUT || path.join(__dirname, '..') + '/';
+const HTML = path.join(process.env.WORK || os.tmpdir(), 'card2.html');
 (async () => {
   const b = await chromium.launch({ proxy: { server: process.env.HTTPS_PROXY } });
   const ctx = await b.newContext({ viewport: { width: 420, height: 600 }, deviceScaleFactor: 4 });
   const p = await ctx.newPage();
-  await p.goto('file://' + __dirname + '/card2.html', { waitUntil: 'networkidle' });
+  await p.goto('file://' + HTML, { waitUntil: 'networkidle' });
   await p.evaluate(() => document.fonts.ready);
   const fit = await p.evaluate(() => [...document.querySelectorAll('.page')].map(pg => {
     const f = pg.querySelector('footer').getBoundingClientRect(), g = pg.querySelector('.guide').getBoundingClientRect(), r = pg.getBoundingClientRect();

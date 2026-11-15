@@ -1,9 +1,11 @@
+import os
 import sys
+import tempfile
 import qrcode
 
 DOMAIN = sys.argv[1] if len(sys.argv) > 1 else "milliytaomlar.hanustoz.tech"   # faqat shu qatorni almashtiring
 URL = "https://" + DOMAIN + "/"
-WORK = "/tmp/claude-0/-home-user-oshxona-menyu/3922530d-0e4c-5ed0-bb9e-ae44f109b79e/scratchpad/print/"
+WORK = os.environ.get("WORK") or tempfile.gettempdir()   # card2.html shu yerga yoziladi, render2.js shu yerdan o'qiydi
 
 q = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_M, border=0)
 q.add_data(URL); q.make(fit=True)
@@ -19,13 +21,13 @@ PHONE = '''<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wid
 <rect x="5.5" y="3" width="9" height="16" rx="2"/><path d="M9 16h2"/><path d="M17.5 8.5a5 5 0 0 1 0 6"/><path d="M19.8 6.3a8.2 8.2 0 0 1 0 10.4"/></svg>'''
 
 
-def qr_way(title, caption_html):
-    return f'''<div class="way"><span class="tagline">{title}</span>
+def qr_way(device, caption_html):
+    return f'''<div class="way"><span class="device">{device}</span>
       <div class="qrbox">{QR}</div><div class="cap">{caption_html}</div></div>'''
 
 
-def nfc_way(title, caption_html):
-    return f'''<div class="way"><span class="tagline">{title}</span>
+def nfc_way(device, caption_html):
+    return f'''<div class="way"><span class="device">{device}</span>
       <div class="nfcwrap"><div class="nfc">{PHONE}<span>NFC</span></div></div><div class="cap">{caption_html}</div></div>'''
 
 
@@ -52,11 +54,13 @@ def multi(uz, ru, k, en):
 
 # Ikkala tomon bir xil: o'zbekcha birinchi (yirik), keyin ru / ko / en.
 # Orqa tomon ko'zgu: NFC chapda, QR o'ngda — bitta stiker ikkala tomonga xizmat qiladi.
+# Har bir usul tepasida qaysi telefon uchunligi: Samsung/Android'da NFC ko'pincha o'chiq -> QR,
+# iPhone'da (XS va yangilari) NFC doim yoqiq -> tekkizish.
 SUB = "MENYU · МЕНЮ · " + ko("메뉴") + " · MENU"
 OR = "yoki · или · " + ko("또는") + " · or"
 TITLE = "Qanday foydalaniladi? · How to use"
-QR_WAY = qr_way("QR", multi("Kamerani QR kodga qarating", "Наведите камеру на QR-код", "카메라로 QR 코드를 스캔하세요", "Point your camera at the QR code"))
-NFC_WAY = nfc_way("NFC", multi("Telefonni doiraga tekkizing", "Приложите телефон к кругу", "휴대폰을 원에 대세요", "Tap your phone on the circle"))
+QR_WAY = qr_way("Samsung · Android", multi("Kamerani QR kodga qarating", "Наведите камеру на QR-код", "카메라로 QR 코드를 스캔하세요", "Point your camera at the QR code"))
+NFC_WAY = nfc_way("iPhone", multi("<em>1–2 soniya</em> tekkizib turing", "Приложите телефон на <em>1–2 секунды</em>", "휴대폰을 <em>1~2초</em>간 대고 계세요", "Tap and hold for <em>1–2 seconds</em>"))
 STEPS = [multi("Skanerlang yoki tekkizing", "Сканируйте или приложите", "스캔하거나 휴대폰을 대세요", "Scan or tap your phone"),
          multi("Havolani bosing", "Нажмите на ссылку", "링크를 누르세요", "Tap the link"),
          multi("Tilni tanlang", "Выберите язык", "언어를 선택하세요", "Choose your language"),
@@ -88,9 +92,10 @@ h1{font:700 19.5pt/1 "Playfair Display",serif;margin-top:1.6mm}
 .sub [lang=ko]{letter-spacing:.06em}
 
 .ways{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:3.2mm;width:100%;margin-top:4mm}
-.way{display:flex;flex-direction:column;align-items:center;padding:3mm 1.8mm 2.4mm;border-radius:4mm;
+.way{display:flex;flex-direction:column;align-items:center;padding:3.8mm 1.8mm 2.4mm;border-radius:4mm;
   background:rgba(255,255,255,.06);border:.3mm solid rgba(235,207,133,.45)}
-.tagline{font-size:6.6pt;line-height:3mm;height:3mm;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#EBCF85;margin-bottom:2mm}
+.device{font-size:7.4pt;line-height:4.4mm;height:4.4mm;padding:0 3mm;border-radius:99mm;font-weight:800;letter-spacing:.04em;white-space:nowrap;
+  color:#0A3D33;background:linear-gradient(#F3DE9F,#D9B55E);box-shadow:0 0 0 .3mm rgba(255,255,255,.25);margin-bottom:2.2mm}
 .qrbox{background:#fff;border-radius:2.6mm;padding:3.3mm;box-shadow:0 0 0 .6mm rgba(235,207,133,.7)}
 .qrbox svg{display:block;width:28.4mm;height:28.4mm}
 .nfcwrap{width:35mm;height:35mm;display:grid;place-items:center;border-radius:50%;border:.45mm dashed rgba(235,207,133,.75)}
@@ -101,9 +106,10 @@ h1{font:700 19.5pt/1 "Playfair Display",serif;margin-top:1.6mm}
 .nfc span{font-size:8.5pt;font-weight:800;letter-spacing:.2em}
 .cap{margin-top:2.2mm;text-align:center;font-size:6pt;line-height:1.32;color:rgba(255,255,255,.86)}
 .cap b{color:#fff;font-weight:800;font-size:7.3pt;line-height:1.5}
+.cap em{font-style:normal;font-weight:800;color:#EBCF85}
 .or{position:absolute;left:50%;top:2.2mm;transform:translateX(-50%);padding:.9mm 2.4mm;line-height:1.2;border-radius:99mm;white-space:nowrap;
   background:#0A3D33;border:.35mm solid #C9A14A;color:#EBCF85;font-size:6.6pt;font-weight:800}
-.or{font-size:6pt;padding:.9mm 2mm}
+.or{font-size:6pt;padding:.9mm 2mm;top:0;transform:translate(-50%,-50%)}
 
 .guide{width:100%;margin-top:4mm;padding:3.2mm 3.4mm 3.4mm;border-radius:4mm;background:#FBF7F0;color:#1B2724}
 .guide h2{font:700 10.5pt/1.1 "Playfair Display",serif;color:#0A3D33;text-align:center;margin-bottom:2.6mm}
@@ -126,5 +132,5 @@ footer span{font-size:6.3pt;color:rgba(255,255,255,.66)}
 html = f'''<!doctype html><html lang="uz"><head><meta charset="utf-8">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Noto+Sans+KR:wght@500;700;800&family=Playfair+Display:wght@700&display=swap">
 <style>{CSS}</style></head><body>{front}{back}</body></html>'''
-open(WORK + "card2.html", "w", encoding="utf-8").write(html)
+open(os.path.join(WORK, "card2.html"), "w", encoding="utf-8").write(html)
 print("domain", DOMAIN, "qr modules", n)
