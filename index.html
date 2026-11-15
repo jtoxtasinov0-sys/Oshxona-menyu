@@ -159,7 +159,7 @@ a{color:inherit}
 }
 .media{position:relative;overflow:hidden;border-radius:calc(var(--r) - 1px) calc(var(--r) - 1px) 0 0;isolation:isolate}
 .media::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34%;z-index:2;pointer-events:none;background:linear-gradient(to top,rgba(10,32,27,.42),rgba(10,32,27,0))}
-.photo{width:100%;aspect-ratio:4/3}
+.photo{width:100%;aspect-ratio:3/4}
 .photo.full img{height:auto}
 .card .body{display:flex;flex-direction:column;flex:1;padding:16px 18px 18px}
 .num{position:absolute;left:14px;bottom:12px;z-index:3;min-width:36px;height:36px;padding:0 8px;border-radius:999px;
@@ -200,22 +200,6 @@ a{color:inherit}
 .off .price small{color:#F1F3F2}
 .card.off .ribbon{filter:grayscale(1);opacity:.85}
 .card.off.feat{background:linear-gradient(#fff,#fff) padding-box,linear-gradient(140deg,#E3E6E4,#C4CAC7) border-box}
-.card .mini-off{display:none}
-.mini-off{flex:none;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:#6E7874;padding:4px 10px;border-radius:999px}
-
-/* ichimliklar ro'yxati */
-.list{margin-top:20px;background:var(--card);border-radius:var(--r-lg);padding:6px 16px;border:1px solid rgba(236,226,209,.9);box-shadow:var(--shadow)}
-.row{display:flex;align-items:center;gap:15px;padding:15px 0;border-bottom:1px dashed var(--line)}
-.row:last-child{border-bottom:0}
-.thumb{width:124px;height:124px;border-radius:20px;box-shadow:0 12px 20px -14px rgba(27,39,36,.65)}
-.row .body{flex:1;min-width:0;display:flex;flex-direction:column}
-.row h3{margin:0;font:700 21px/1.25 var(--serif)}
-.row p{margin:3px 0 10px;font-size:15px;line-height:1.45;color:var(--muted)}
-.row .buy{flex-wrap:wrap;gap:6px 10px}
-.row .price{font-size:21px;padding:7px 14px;border-radius:12px;order:-1}
-.row .price small{font-size:14px}
-.row .unit{font-size:14.5px}
-.row .dots{display:none}
 
 /* promo */
 .promo{position:relative;overflow:hidden;margin-top:34px;border-radius:var(--r-lg);padding:22px 142px 22px 20px;min-height:136px;
@@ -261,7 +245,6 @@ a{color:inherit}
 
 @media (max-width:359px){
   .langs button{font-size:13px}
-  .thumb{width:96px;height:96px}
   .card h3{font-size:23px}
   .price{font-size:23px;padding:8px 14px}
   .hero-txt{max-width:62%}
@@ -525,7 +508,6 @@ function imgOk(img){
             : lang === "en" ? "<small>₩</small>" + cm
             : sp + " <small>₩</small>";
     return '<div class="buy"><span class="unit">' + esc(tr(UNITS[it.u]) || "") + '</span><i class="dots"></i>' +
-      (it.off ? '<span class="mini-off">' + esc(ui("soldOut")) + '</span>' : "") +
       '<span class="price">' + v + '</span></div>';
   }
 
@@ -560,14 +542,9 @@ function imgOk(img){
     const tag = it.tag && !it.off && TAGS[it.tag] ? '<span class="tag t-' + it.tag + '">' + esc(tr(TAGS[it.tag])) + '</span>' : "";
     return '<article class="card' + (feat ? " feat" : "") + (it.off ? " off" : "") + ' rv" data-q="' + esc(searchKey(it, cat)) + '">' +
       (feat && it.ribbon ? '<span class="ribbon"><svg aria-hidden="true"><use href="#star"/></svg>' + esc(tr(it.ribbon)) + '</span>' : "") +
-      '<div class="media">' + pic(it.img, 520, 390, name, "photo" + (it.full ? " full" : ""), false, !!it.full) +
+      '<div class="media">' + pic(it.img, 520, 693, name, "photo" + (it.full ? " full" : ""), false, !!it.full) +
         '<span class="num">' + (i + 1) + '</span>' + tag +
         (it.off ? '<span class="stamp">' + esc(ui("soldOut")) + '</span>' : "") + '</div>' +
-      '<div class="body">' + origHTML(it) + '<h3>' + esc(name) + '</h3>' + (desc ? '<p>' + esc(desc) + '</p>' : "") + priceHTML(it) + '</div></article>';
-  }
-  function rowHTML(it, cat){
-    const name = tr(it.n), desc = tr(it.d);
-    return '<article class="row' + (it.off ? " off" : "") + '" data-q="' + esc(searchKey(it, cat)) + '">' + pic(it.img, 124, 124, name, "thumb") +
       '<div class="body">' + origHTML(it) + '<h3>' + esc(name) + '</h3>' + (desc ? '<p>' + esc(desc) + '</p>' : "") + priceHTML(it) + '</div></article>';
   }
 
@@ -591,9 +568,8 @@ function imgOk(img){
     let html = "", chips = "";
     visibleMenu().forEach((cat, ci) => {
       chips += '<button class="chip" type="button" data-go="' + esc(cat.id) + '">' + pic(cat.thumb || cat.items[0].img, 42, 42, "", "round", true) + '<span>' + esc(tr(cat.chip) || tr(cat.title)) + '</span></button>';
-      const body = cat.list
-        ? '<div class="list rv">' + cat.items.map(it => rowHTML(it, cat)).join("") + '</div>'
-        : '<div class="grid">' + cat.items.map((it, i) => cardHTML(it, i, cat)).join("") + '</div>';
+      // Barcha bo'limlar (ichimliklar ham) katta rasmli kartochkalar bilan
+      const body = '<div class="grid">' + cat.items.map((it, i) => cardHTML(it, i, cat)).join("") + '</div>';
       const sub = tr(cat.sub);
       html += '<section class="sec wrap" id="' + esc(cat.id) + '" aria-labelledby="h-' + esc(cat.id) + '">' +
         '<div class="sec-hd rv"><span class="sec-no">' + String(ci + 1).padStart(2, "0") + '</span>' +
