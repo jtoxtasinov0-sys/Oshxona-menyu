@@ -1,5 +1,6 @@
-import qrcode
 import sys
+import qrcode
+
 DOMAIN = sys.argv[1] if len(sys.argv) > 1 else "milliytaomlar.hanustoz.tech"   # faqat shu qatorni almashtiring
 URL = "https://" + DOMAIN + "/"
 WORK = "/tmp/claude-0/-home-user-oshxona-menyu/3922530d-0e4c-5ed0-bb9e-ae44f109b79e/scratchpad/print/"
@@ -28,14 +29,15 @@ def nfc_way(title, caption_html):
       <div class="nfcwrap"><div class="nfc">{PHONE}<span>NFC</span></div></div><div class="cap">{caption_html}</div></div>'''
 
 
-def page(side, sub, ways, orword, guide_title, steps, foot_note):
+def page(side, sub, ways, orword, guide_title, steps, foot_note=""):
     w = "".join(ways)
     st = "".join(f'<li><i>{i+1}</i><div>{s}</div></li>' for i, s in enumerate(steps))
+    note = f"<span>{foot_note}</span>" if foot_note else ""
     return f'''<section class="page {side}">
   <header>{EMBLEM}<h1>Milliy Taomlar</h1><div class="sub">{sub}</div></header>
   <div class="ways">{w}<span class="or">{orword}</span></div>
   <div class="guide"><h2>{guide_title}</h2><ol>{st}</ol></div>
-  <footer><b>{DOMAIN}</b><span>{foot_note}</span></footer>
+  <footer><b>{DOMAIN}</b>{note}</footer>
 </section>'''
 
 
@@ -43,7 +45,12 @@ def ko(s):
     return f'<span lang="ko">{s}</span>'
 
 
-# Old tomon — o'zbekcha (QR chapda, NFC o'ngda)
+def multi(uz, ru, k, en):
+    """O'zbekcha — asosiy (qalin), keyin ruscha, koreyscha, inglizcha."""
+    return f"<b>{uz}</b><br>{ru}<br>{ko(k)}<br>{en}"
+
+
+# Old tomon — faqat o'zbekcha, yirik (QR chapda, NFC o'ngda)
 front = page("front", "ELEKTRON MENYU",
   [qr_way("1-usul · QR", "<b>Kamerani QR kodga qarating</b>"),
    nfc_way("2-usul · NFC", "<b>Telefonni doiraga tekkizing</b>")],
@@ -54,16 +61,16 @@ front = page("front", "ELEKTRON MENYU",
    "Taomni tanlab, <b>ofitsiantga ayting</b>"],
   "Русский · " + ko("한국어") + " · English — orqa tomonda ↻")
 
-# Orqa tomon — ru / ko / en (ko'zgu: NFC chapda, QR o'ngda — bitta stiker ikkala tomonga xizmat qiladi)
-back = page("back", "МЕНЮ · " + ko("메뉴") + " · MENU",
-  [nfc_way("NFC", "<b>Приложите телефон к кругу</b><br>" + ko("휴대폰을 원에 대세요") + "<br>Tap your phone on the circle"),
-   qr_way("QR", "<b>Наведите камеру на QR-код</b><br>" + ko("카메라로 QR 코드를 스캔하세요") + "<br>Point your camera at the QR code")],
-  "или · " + ko("또는") + " · or", "Как пользоваться? · " + ko("이용 방법") + " · How to use",
-  ["<b>Сканируйте QR или приложите телефон</b><br>" + ko("QR 코드를 스캔하거나 휴대폰을 대세요") + "<br>Scan the QR or tap your phone",
-   "<b>Нажмите на ссылку</b><br>" + ko("화면의 링크를 누르세요") + "<br>Tap the link that appears",
-   "<b>Выберите язык вверху</b><br>" + ko("상단에서 언어를 선택하세요") + "<br>Choose your language at the top",
-   "<b>Выберите блюдо и скажите официанту</b><br>" + ko("메뉴를 고른 후 직원에게 말씀해 주세요") + "<br>Pick a dish, tell your waiter"],
-  "O’zbekcha — old tomonda ↻")
+# Orqa tomon — o'zbekcha birinchi, keyin ru / ko / en
+# (ko'zgu: NFC chapda, QR o'ngda — bitta stiker ikkala tomonga xizmat qiladi)
+back = page("back", "MENYU · МЕНЮ · " + ko("메뉴") + " · MENU",
+  [nfc_way("NFC", multi("Telefonni doiraga tekkizing", "Приложите телефон к кругу", "휴대폰을 원에 대세요", "Tap your phone on the circle")),
+   qr_way("QR", multi("Kamerani QR kodga qarating", "Наведите камеру на QR-код", "카메라로 QR 코드를 스캔하세요", "Point your camera at the QR code"))],
+  "yoki · или · " + ko("또는") + " · or", "Qanday foydalaniladi? · How to use",
+  [multi("Skanerlang yoki tekkizing", "Сканируйте или приложите", "스캔하거나 휴대폰을 대세요", "Scan or tap your phone"),
+   multi("Havolani bosing", "Нажмите на ссылку", "링크를 누르세요", "Tap the link"),
+   multi("Tilni tanlang", "Выберите язык", "언어를 선택하세요", "Choose your language"),
+   multi("Ofitsiantga buyurtma bering", "Закажите у официанта", "직원에게 주문하세요", "Order from your waiter")])
 
 CSS = r'''
 @page{size:105mm 148mm;margin:0}
@@ -73,7 +80,7 @@ body{font-family:Manrope,"Noto Sans KR",sans-serif;-webkit-print-color-adjust:ex
 [lang=ko]{font-family:"Noto Sans KR",Manrope,sans-serif}
 .page{
   width:105mm;height:148mm;position:relative;overflow:hidden;color:#fff;
-  display:flex;flex-direction:column;align-items:center;padding:7.5mm 6.5mm 6mm;
+  display:flex;flex-direction:column;align-items:center;padding:6.6mm 6.5mm 5.6mm;
   page-break-after:always;break-after:page;
   background:
     radial-gradient(120% 60% at 50% 0%,rgba(22,119,95,.95),transparent 65%),
@@ -82,43 +89,44 @@ body{font-family:Manrope,"Noto Sans KR",sans-serif;-webkit-print-color-adjust:ex
 }
 .page::after{content:"";position:absolute;inset:3mm;border:.35mm solid rgba(235,207,133,.55);border-radius:4mm;pointer-events:none}
 header{display:flex;flex-direction:column;align-items:center}
-.logo{width:11mm;height:11mm}
-h1{font:700 21pt/1 "Playfair Display",serif;margin-top:2mm}
-.sub{margin-top:1.8mm;font-size:7pt;line-height:3mm;height:3mm;font-weight:800;letter-spacing:.26em;color:#EBCF85}
+.logo{width:9.5mm;height:9.5mm}
+h1{font:700 19.5pt/1 "Playfair Display",serif;margin-top:1.6mm}
+.sub{margin-top:1.6mm;font-size:6.8pt;line-height:3mm;height:3mm;font-weight:800;letter-spacing:.24em;color:#EBCF85}
 .sub [lang=ko]{letter-spacing:.06em}
 
-.ways{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:3.2mm;width:100%;margin-top:4.5mm}
-.way{display:flex;flex-direction:column;align-items:center;padding:3mm 1.8mm 2.6mm;border-radius:4mm;
+.ways{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:3.2mm;width:100%;margin-top:4mm}
+.way{display:flex;flex-direction:column;align-items:center;padding:3mm 1.8mm 2.4mm;border-radius:4mm;
   background:rgba(255,255,255,.06);border:.3mm solid rgba(235,207,133,.45)}
-.tagline{font-size:6.6pt;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#EBCF85;margin-bottom:2.2mm}
-.qrbox{background:#fff;border-radius:2.6mm;padding:3.4mm;box-shadow:0 0 0 .6mm rgba(235,207,133,.7)}
-.qrbox svg{display:block;width:30mm;height:30mm}
-.nfcwrap{width:36.8mm;height:36.8mm;display:grid;place-items:center;border-radius:50%;border:.45mm dashed rgba(235,207,133,.75)}
-.nfc{width:30mm;height:30mm;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6mm;
+.tagline{font-size:6.6pt;line-height:3mm;height:3mm;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#EBCF85;margin-bottom:2mm}
+.qrbox{background:#fff;border-radius:2.6mm;padding:3.3mm;box-shadow:0 0 0 .6mm rgba(235,207,133,.7)}
+.qrbox svg{display:block;width:28.4mm;height:28.4mm}
+.nfcwrap{width:35mm;height:35mm;display:grid;place-items:center;border-radius:50%;border:.45mm dashed rgba(235,207,133,.75)}
+.nfc{width:28.6mm;height:28.6mm;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6mm;
   background:radial-gradient(circle at 35% 30%,#F8E7B4,#C9A14A 60%,#A87F2C);color:#2D2108;
   box-shadow:0 0 0 1.2mm rgba(235,207,133,.18),inset 0 .6mm 0 rgba(255,255,255,.5)}
-.nfc svg{width:13mm;height:13mm}
+.nfc svg{width:12.5mm;height:12.5mm}
 .nfc span{font-size:8.5pt;font-weight:800;letter-spacing:.2em}
-.cap{margin-top:2.4mm;text-align:center;font-size:7.6pt;line-height:1.3;color:rgba(255,255,255,.88)}
+.cap{margin-top:2.2mm;text-align:center;font-size:7.6pt;line-height:1.3;color:rgba(255,255,255,.86)}
 .cap b{color:#fff;font-weight:800}
-.back .cap{font-size:6.3pt;line-height:1.35}
-.back .cap b{font-size:6.6pt}
+.back .cap{font-size:6pt;line-height:1.32}
+.back .cap b{font-size:6.8pt;line-height:1.5}
 .or{position:absolute;left:50%;top:2.2mm;transform:translateX(-50%);padding:.9mm 2.4mm;line-height:1.2;border-radius:99mm;white-space:nowrap;
   background:#0A3D33;border:.35mm solid #C9A14A;color:#EBCF85;font-size:6.6pt;font-weight:800}
+.back .or{font-size:6pt;padding:.9mm 2mm}
 
 .guide{width:100%;margin-top:4mm;padding:3.2mm 3.4mm 3.4mm;border-radius:4mm;background:#FBF7F0;color:#1B2724}
-.guide h2{font:700 10.5pt/1.1 "Playfair Display","Noto Sans KR",serif;color:#0A3D33;text-align:center;margin-bottom:2.6mm}
-.back .guide h2{font-size:8.6pt}
+.guide h2{font:700 10.5pt/1.1 "Playfair Display",serif;color:#0A3D33;text-align:center;margin-bottom:2.6mm}
 .guide ol{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:2.4mm 3mm}
 .guide li{display:flex;gap:1.8mm;align-items:flex-start;font-size:7.4pt;line-height:1.32;color:#36433E}
 .guide li b{color:#0A3D33;font-weight:800}
-.back .guide{margin-top:3.2mm;padding:2.8mm 3.2mm 3mm}
-.back .guide h2{margin-bottom:2.2mm}
-.back .guide ol{gap:2mm 2.6mm}
-.back .guide li{font-size:5.9pt;line-height:1.34}
-.back .guide li b{font-size:6.1pt;font-weight:700}
 .guide i{flex:none;width:5.2mm;height:5.2mm;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:7.4pt;
   color:#fff;background:#0F5B4B;box-shadow:0 0 0 .5mm #EBCF85}
+.back .guide{margin-top:3mm;padding:2.6mm 3mm 2.8mm}
+.back .guide h2{font-size:9pt;margin-bottom:2mm}
+.back .guide ol{gap:1.8mm 2.4mm}
+.back .guide li{font-size:5.7pt;line-height:1.3}
+.back .guide li b{font-size:6.5pt;line-height:1.35}
+.back .guide i{width:4.6mm;height:4.6mm;font-size:6.6pt}
 
 footer{margin-top:auto;display:flex;flex-direction:column;align-items:center;gap:.8mm}
 footer b{font-size:8.6pt;color:#EBCF85;letter-spacing:.02em}
@@ -128,4 +136,4 @@ html = f'''<!doctype html><html lang="uz"><head><meta charset="utf-8">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Noto+Sans+KR:wght@500;700;800&family=Playfair+Display:wght@700&display=swap">
 <style>{CSS}</style></head><body>{front}{back}</body></html>'''
 open(WORK + "card2.html", "w", encoding="utf-8").write(html)
-print("qr modules", n)
+print("domain", DOMAIN, "qr modules", n)
