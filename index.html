@@ -30,12 +30,12 @@
   --gold-l:#EBCF85;
   --gold-ink:#8C6A1F;
   --terra:#D4553A;
-  --r:22px;
-  --r-lg:28px;
-  --shadow:0 1px 2px rgba(27,39,36,.05),0 10px 28px -14px rgba(27,39,36,.22);
+  --r:26px;
+  --r-lg:30px;
+  --shadow:0 1px 2px rgba(27,39,36,.05),0 16px 34px -20px rgba(27,39,36,.34);
   --serif:"Playfair Display","Noto Serif KR",Georgia,"Times New Roman",serif;
   --sans:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",Arial,sans-serif;
-  --nav-h:62px;
+  --nav-h:66px;
   --ease:cubic-bezier(.2,.7,.2,1);
   color-scheme:light;
 }
@@ -43,48 +43,48 @@
 [hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 html:lang(ko) body{word-break:keep-all}
-html:lang(ko) :is(.eyebrow,.info span,.promo small,.tag,.orig){letter-spacing:.02em}
+html:lang(ko) :is(.eyebrow,.info span,.promo small,.tag,.orig,.stamp){letter-spacing:.02em}
 body{
   margin:0;min-height:100vh;color:var(--ink);
   font:400 16px/1.5 var(--sans);
   -webkit-font-smoothing:antialiased;overflow-x:hidden;
   background:
-    radial-gradient(120% 60% at 50% -10%,rgba(235,207,133,.35),transparent 60%),
-    var(--bg);
+    radial-gradient(120% 50% at 50% -8%,rgba(235,207,133,.38),transparent 62%),
+    linear-gradient(180deg,var(--bg),#F8F1E4 70%,var(--bg));
 }
 img{display:block;max-width:100%}
 button,input{font:inherit;color:inherit}
 a{color:inherit}
-.wrap{width:100%;max-width:560px;margin:0 auto;padding:0 16px}
+.wrap{width:100%;max-width:580px;margin:0 auto;padding:0 16px}
 .sprite{position:absolute;width:0;height:0;overflow:hidden}
 
 /* ---------- Header ---------- */
 .top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:max(18px,env(safe-area-inset-top));padding-bottom:14px;position:relative;z-index:40}
-.brand{display:flex;align-items:center;gap:11px;min-width:0}
-.logo{width:48px;height:48px;flex:none;filter:drop-shadow(0 6px 10px rgba(140,106,31,.28))}
-.brand h1{margin:0;font:700 25px/1.05 var(--serif);letter-spacing:.2px;color:var(--em-d);white-space:nowrap}
-.status{display:flex;align-items:center;gap:7px;margin-top:6px;font-size:13.5px;font-weight:600;color:var(--muted);white-space:nowrap}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.logo{width:52px;height:52px;flex:none;filter:drop-shadow(0 6px 10px rgba(140,106,31,.3))}
+.brand h1{margin:0;font:700 27px/1.05 var(--serif);letter-spacing:.2px;color:var(--em-d);white-space:nowrap}
+.status{display:flex;align-items:center;gap:7px;margin-top:6px;font-size:14px;font-weight:600;color:var(--muted);white-space:nowrap}
 .status i{flex:none;width:8px;height:8px;border-radius:50%;background:#22A06B;box-shadow:0 0 0 3px rgba(34,160,107,.18)}
 .status b{color:var(--ink)}
 .status.closed i{background:var(--terra);box-shadow:0 0 0 3px rgba(212,85,58,.18)}
 
 /* language */
 .langs{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:4px;margin-bottom:12px;background:#fff;border:1px solid var(--line);border-radius:999px;box-shadow:0 6px 18px -14px rgba(27,39,36,.35)}
-.langs button{height:42px;border:0;border-radius:999px;background:none;cursor:pointer;font-weight:700;font-size:14.5px;color:var(--ink);white-space:nowrap;padding:0 4px;-webkit-tap-highlight-color:transparent;transition:background .2s,color .2s}
+.langs button{height:44px;border:0;border-radius:999px;background:none;cursor:pointer;font-weight:700;font-size:14.5px;color:var(--ink);white-space:nowrap;padding:0 4px;-webkit-tap-highlight-color:transparent;transition:background .2s,color .2s}
 .langs button[aria-pressed="true"]{background:var(--em);color:#fff;box-shadow:0 6px 14px -8px rgba(15,91,75,.9)}
 
 /* ---------- Search ---------- */
 .search{position:relative;display:block;margin-bottom:16px}
-.search > svg{position:absolute;left:16px;top:50%;width:19px;height:19px;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+.search > svg{position:absolute;left:17px;top:50%;width:20px;height:20px;transform:translateY(-50%);color:var(--muted);pointer-events:none}
 .search input{
-  width:100%;height:52px;padding:0 46px;border-radius:999px;border:1px solid var(--line);
-  background:#fff;font-size:16px;outline:none;box-shadow:0 6px 18px -14px rgba(27,39,36,.35);
+  width:100%;height:54px;padding:0 48px;border-radius:999px;border:1px solid var(--line);
+  background:#fff;font-size:16.5px;outline:none;box-shadow:0 6px 18px -14px rgba(27,39,36,.35);
   transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none
 }
-.search input::placeholder{color:#9AA39F}
+.search input::placeholder{color:#8E9893}
 .search input:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(201,161,74,.18)}
 .search input::-webkit-search-cancel-button{display:none}
-.search .clear{position:absolute;right:10px;top:50%;transform:translateY(-50%);width:30px;height:30px;border:0;border-radius:50%;background:var(--sand);display:grid;place-items:center;cursor:pointer;color:var(--muted)}
+.search .clear{position:absolute;right:10px;top:50%;transform:translateY(-50%);width:34px;height:34px;border:0;border-radius:50%;background:var(--sand);display:grid;place-items:center;cursor:pointer;color:var(--muted)}
 .search .clear svg{width:14px;height:14px}
 
 /* ---------- Hero ---------- */
@@ -93,120 +93,148 @@ a{color:inherit}
 }
 .hero-card{
   position:relative;overflow:hidden;border-radius:var(--r-lg);
-  padding:22px 20px;min-height:200px;color:#fff;
+  padding:24px 20px;min-height:214px;color:#fff;
   background-color:var(--em);
-  box-shadow:0 22px 40px -24px rgba(10,61,51,.75);
+  box-shadow:0 24px 44px -26px rgba(10,61,51,.8);
   display:flex;align-items:center
 }
 .hero-card::before{content:"";position:absolute;inset:0;background:radial-gradient(90% 120% at 100% 50%,rgba(22,119,95,.95),transparent 60%),linear-gradient(135deg,var(--em-d),transparent 70%);pointer-events:none}
-.hero-txt{position:relative;z-index:2;max-width:58%}
+.hero-card::after{content:"";position:absolute;inset:8px;border-radius:calc(var(--r-lg) - 8px);border:1px solid rgba(235,207,133,.22);pointer-events:none;z-index:3}
+.hero-txt{position:relative;z-index:2;max-width:57%}
 .eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-l)}
 .eyebrow::before{content:"";width:16px;height:1px;background:var(--gold-l)}
-.hero h2{margin:10px 0 8px;font:700 26px/1.12 var(--serif)}
+.hero h2{margin:10px 0 8px;font:700 28px/1.1 var(--serif)}
 .hero h2 em{font-style:italic;font-weight:600;color:var(--gold-l)}
-.hero p{margin:0 0 16px;font-size:14.5px;line-height:1.45;color:rgba(255,255,255,.82)}
+.hero p{margin:0 0 16px;font-size:15px;line-height:1.45;color:rgba(255,255,255,.84)}
 .btn-gold{
-  display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 18px;border:0;border-radius:999px;cursor:pointer;text-decoration:none;
-  background:linear-gradient(135deg,#F6E2A6,#C9A14A 60%,#B48A33);color:#2D2108;font-weight:800;font-size:14px;
+  display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 20px;border:0;border-radius:999px;cursor:pointer;text-decoration:none;
+  background:linear-gradient(135deg,#F6E2A6,#C9A14A 60%,#B48A33);color:#2D2108;font-weight:800;font-size:15px;
   box-shadow:0 10px 20px -10px rgba(201,161,74,.9),inset 0 1px 0 rgba(255,255,255,.5);transition:transform .2s var(--ease)
 }
 .btn-gold:active{transform:scale(.97)}
 .btn-gold svg{width:16px;height:16px}
-.hero-img{position:absolute;right:-26px;top:50%;width:178px;height:178px;transform:translateY(-50%);border-radius:50%;z-index:1;
-  box-shadow:0 0 0 6px rgba(255,255,255,.08),0 0 0 7px rgba(235,207,133,.55),0 24px 40px -16px rgba(0,0,0,.6)}
+.hero-img{position:absolute;right:-30px;top:50%;width:190px;height:190px;transform:translateY(-50%);border-radius:50%;z-index:1;
+  box-shadow:0 0 0 6px rgba(255,255,255,.08),0 0 0 7px rgba(235,207,133,.6),0 24px 40px -16px rgba(0,0,0,.6)}
 .hero-img .pic{width:100%;height:100%}
 
 /* ---------- Category nav ---------- */
 .sentinel{height:1px}
-.cats{position:sticky;top:0;z-index:30;margin-top:14px;background:rgba(251,247,240,.86);-webkit-backdrop-filter:saturate(1.5) blur(14px);backdrop-filter:saturate(1.5) blur(14px);transition:box-shadow .25s,border-color .25s;border-bottom:1px solid transparent}
+.cats{position:sticky;top:0;z-index:30;margin-top:14px;background:rgba(251,247,240,.88);-webkit-backdrop-filter:saturate(1.5) blur(14px);backdrop-filter:saturate(1.5) blur(14px);transition:box-shadow .25s,border-color .25s;border-bottom:1px solid transparent}
 .cats.stuck{box-shadow:0 10px 24px -20px rgba(27,39,36,.55);border-bottom-color:var(--line)}
-.cats-in{display:flex;gap:8px;overflow-x:auto;padding:10px 16px;scrollbar-width:none;-webkit-overflow-scrolling:touch;max-width:560px;margin:0 auto}
+.cats-in{display:flex;gap:8px;overflow-x:auto;padding:10px 16px;scrollbar-width:none;-webkit-overflow-scrolling:touch;max-width:580px;margin:0 auto}
 .cats-in::-webkit-scrollbar{display:none}
 .chip{
-  flex:none;display:flex;align-items:center;gap:9px;height:48px;padding:0 17px 0 6px;border-radius:999px;cursor:pointer;
-  background:#fff;border:1px solid var(--line);font-weight:700;font-size:15.5px;white-space:nowrap;color:var(--ink);
+  flex:none;display:flex;align-items:center;gap:10px;height:54px;padding:0 19px 0 6px;border-radius:999px;cursor:pointer;
+  background:#fff;border:1px solid var(--line);font-weight:700;font-size:16px;white-space:nowrap;color:var(--ink);
   transition:background .25s,color .25s,border-color .25s,box-shadow .25s,opacity .25s;-webkit-tap-highlight-color:transparent
 }
-.chip .pic{width:36px;height:36px}
+.chip .pic{width:42px;height:42px}
 .chip.on{background:var(--em);border-color:var(--em);color:#fff;box-shadow:0 8px 18px -10px rgba(15,91,75,.85)}
 .chip.on .pic{box-shadow:0 0 0 2px var(--gold-l)}
 .chip.dim{opacity:.38}
 
 /* ---------- Sections ---------- */
-.sec{padding-top:30px;scroll-margin-top:calc(var(--nav-h) + 6px)}
+.sec{padding-top:34px;scroll-margin-top:calc(var(--nav-h) + 6px)}
+.sec ~ .sec::before{content:"";display:block;height:20px;margin:0 auto 30px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='20' viewBox='0 0 240 20'%3E%3Cpath d='M8 10H98M142 10H232' stroke='%23C9A14A' stroke-opacity='.5' stroke-width='1.2'/%3E%3Ccircle cx='106' cy='10' r='2' fill='%23C9A14A' fill-opacity='.75'/%3E%3Ccircle cx='134' cy='10' r='2' fill='%23C9A14A' fill-opacity='.75'/%3E%3Cpath d='M120 1l2.8 6.2L129 10l-6.2 2.8L120 19l-2.8-6.2L111 10l6.2-2.8z' fill='%23C9A14A'/%3E%3C/svg%3E") center/240px 20px no-repeat}
 .sec-hd{display:flex;align-items:baseline;gap:10px}
-.sec-no{font:italic 600 16px/1 var(--serif);color:var(--gold-ink)}
-.sec-hd h2{margin:0;font:700 32px/1.1 var(--serif);color:var(--em-d)}
-.sec-count{margin-left:auto;align-self:center;font-size:13px;font-weight:700;color:var(--gold-ink);background:rgba(235,207,133,.28);padding:4px 10px;border-radius:999px;white-space:nowrap}
-.sec-sub{margin:6px 0 0;font-size:15px;color:var(--muted);display:flex;align-items:center;gap:10px}
+.sec-no{font:italic 600 17px/1 var(--serif);color:var(--gold-ink)}
+.sec-hd h2{margin:0;font:700 34px/1.1 var(--serif);color:var(--em-d)}
+.sec-count{margin-left:auto;align-self:center;font-size:13.5px;font-weight:700;color:var(--gold-ink);background:rgba(235,207,133,.3);padding:5px 11px;border-radius:999px;white-space:nowrap}
+.sec-sub{margin:6px 0 0;font-size:15.5px;color:var(--muted);display:flex;align-items:center;gap:10px}
 .sec-sub::before{content:"";flex:none;width:22px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--gold),var(--gold-l))}
-.grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:18px}
+.grid{display:grid;grid-template-columns:1fr;gap:22px;margin-top:20px}
 
-/* image circle */
+/* rasm */
 .pic{position:relative;flex:none;margin:0;overflow:hidden;background:radial-gradient(circle at 35% 30%,#fff,var(--sand) 70%);color:var(--gold);isolation:isolate}
-.pic .ph{position:absolute;inset:0;margin:auto;width:42%;height:42%;opacity:.75;z-index:0}
+.pic .ph{position:absolute;inset:0;margin:auto;width:40%;height:40%;max-width:96px;max-height:96px;opacity:.7;z-index:0}
 .pic img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s var(--ease)}
 .pic img.ok{opacity:1}
 .round{border-radius:50%}
 
-/* card — har bir taom: katta rasm, katta nom, katta narx */
+/* kartochka — katta rasm, katta nom, katta narx */
 .card{
   position:relative;display:flex;flex-direction:column;
-  background:var(--card);border-radius:var(--r);border:1px solid rgba(236,226,209,.8);box-shadow:var(--shadow)
+  background:var(--card);border-radius:var(--r);border:1px solid rgba(236,226,209,.9);box-shadow:var(--shadow)
 }
-.photo{width:100%;aspect-ratio:16/10;border-radius:calc(var(--r) - 1px) calc(var(--r) - 1px) 0 0}
-.card .body{display:flex;flex-direction:column;flex:1;padding:14px 16px 16px}
-.num{position:absolute;top:12px;left:12px;width:30px;height:30px;border-radius:50%;background:var(--em);color:#fff;font:800 14px/30px var(--sans);text-align:center;z-index:2;box-shadow:0 0 0 2px rgba(255,255,255,.9),0 4px 10px -4px rgba(0,0,0,.45)}
-.tag{position:absolute;top:12px;right:12px;z-index:2;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px;color:#fff;background:var(--terra);box-shadow:0 4px 10px -4px rgba(0,0,0,.45)}
+.media{position:relative;overflow:hidden;border-radius:calc(var(--r) - 1px) calc(var(--r) - 1px) 0 0;isolation:isolate}
+.media::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34%;z-index:2;pointer-events:none;background:linear-gradient(to top,rgba(10,32,27,.42),rgba(10,32,27,0))}
+.photo{width:100%;aspect-ratio:4/3}
+.photo.full img{height:auto}
+.card .body{display:flex;flex-direction:column;flex:1;padding:16px 18px 18px}
+.num{position:absolute;left:14px;bottom:12px;z-index:3;min-width:36px;height:36px;padding:0 8px;border-radius:999px;
+  background:rgba(255,255,255,.9);color:var(--em-d);font:700 17px/36px var(--serif);text-align:center;
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:0 6px 14px -6px rgba(0,0,0,.45)}
+.tag{position:absolute;top:14px;right:14px;z-index:3;font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:7px 13px;border-radius:999px;color:#fff;background:var(--terra);box-shadow:0 6px 14px -6px rgba(0,0,0,.5)}
 .t-new{background:var(--em-2)}
 .t-hot{background:#C2412D}
 .t-season{background:var(--gold);color:#2D2108}
-.orig{display:block;margin:0 0 3px;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-ink)}
-.card h3{margin:0 0 6px;font:700 23px/1.2 var(--serif);color:var(--ink)}
-.card p{margin:0 0 14px;font-size:15.5px;line-height:1.5;color:var(--muted)}
-.buy{margin-top:auto;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
-.price{display:inline-flex;align-items:baseline;gap:4px;padding:9px 18px;border-radius:14px;background:var(--em);color:#fff;font-weight:800;font-size:25px;line-height:1.15;letter-spacing:.1px;white-space:nowrap;box-shadow:0 8px 16px -10px rgba(15,91,75,.8)}
+.orig{display:block;margin:0 0 3px;font-size:12.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-ink)}
+.card h3{margin:0 0 6px;font:700 26px/1.18 var(--serif);color:var(--ink)}
+.card p{margin:0 0 16px;font-size:16px;line-height:1.5;color:var(--muted)}
+.buy{margin-top:auto;display:flex;align-items:center;gap:10px}
+.buy .dots{flex:1;min-width:10px;align-self:center;height:0;margin-top:6px;border-bottom:2px dotted #DCCDAF}
+.price{flex:none;display:inline-flex;align-items:baseline;gap:4px;padding:9px 18px;border-radius:15px;background:var(--em);color:#fff;font-weight:800;font-size:26px;line-height:1.15;letter-spacing:.1px;white-space:nowrap;box-shadow:0 8px 16px -10px rgba(15,91,75,.8)}
 .price small{font-size:16px;font-weight:700;color:var(--gold-l)}
-.unit{font-size:15px;color:var(--muted);font-weight:600}
+.unit{flex:none;font-size:16px;color:var(--muted);font-weight:600}
 
-/* tavsiya kartochka */
-.card.feat{margin-top:6px;background:linear-gradient(160deg,#fff 60%,#FFF8E8);border-color:#F0D99A}
-.card.feat .num{top:24px}
-.ribbon{position:absolute;top:-12px;left:16px;z-index:3;display:inline-flex;align-items:center;gap:6px;padding:6px 14px 6px 11px;border-radius:999px;
-  background:linear-gradient(135deg,#F6E2A6,#C9A14A 65%,#B48A33);color:#2D2108;font-size:13px;font-weight:800;white-space:nowrap;
+/* tavsiya kartochka — oltin ramka */
+.card.feat{margin-top:8px;border:2px solid transparent;
+  background:linear-gradient(170deg,#fff 55%,#FFF7E4) padding-box,linear-gradient(140deg,#F6E2A6,#C9A14A 40%,#F3DDA0 68%,#B48A33) border-box;
+  box-shadow:0 1px 2px rgba(27,39,36,.05),0 22px 44px -24px rgba(140,106,31,.6)}
+.card.feat .media{border-radius:calc(var(--r) - 2px) calc(var(--r) - 2px) 0 0}
+.card.feat .tag{top:24px}
+.ribbon{position:absolute;top:-14px;left:16px;z-index:4;display:inline-flex;align-items:center;gap:6px;padding:7px 15px 7px 12px;border-radius:999px;
+  background:linear-gradient(135deg,#F6E2A6,#C9A14A 65%,#B48A33);color:#2D2108;font-size:13.5px;font-weight:800;white-space:nowrap;
   box-shadow:0 8px 16px -8px rgba(140,106,31,.8),inset 0 1px 0 rgba(255,255,255,.55)}
 .ribbon svg{width:13px;height:13px}
 
+/* tugagan taom */
+.stamp{position:absolute;left:50%;top:50%;z-index:3;transform:translate(-50%,-50%) rotate(-6deg);padding:10px 22px;border-radius:14px;
+  border:2px solid rgba(255,255,255,.92);background:rgba(27,39,36,.74);color:#fff;font-weight:800;font-size:19px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;
+  -webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);box-shadow:0 10px 26px -10px rgba(0,0,0,.6)}
+.off .pic img{filter:grayscale(1) contrast(.92) brightness(1.04)}
+.off h3,.off .orig{color:#7D8783}
+.off p{color:#8A938F}
+.off .price{background:#A3ACA8;box-shadow:none}
+.off .price small{color:#F1F3F2}
+.card.off .ribbon{filter:grayscale(1);opacity:.85}
+.card.off.feat{background:linear-gradient(#fff,#fff) padding-box,linear-gradient(140deg,#E3E6E4,#C4CAC7) border-box}
+.card .mini-off{display:none}
+.mini-off{flex:none;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:#6E7874;padding:4px 10px;border-radius:999px}
+
 /* ichimliklar ro'yxati */
-.list{margin-top:18px;background:var(--card);border-radius:var(--r-lg);padding:4px 14px;border:1px solid rgba(236,226,209,.8);box-shadow:var(--shadow)}
-.row{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.list{margin-top:20px;background:var(--card);border-radius:var(--r-lg);padding:6px 16px;border:1px solid rgba(236,226,209,.9);box-shadow:var(--shadow)}
+.row{display:flex;align-items:center;gap:15px;padding:15px 0;border-bottom:1px dashed var(--line)}
 .row:last-child{border-bottom:0}
-.thumb{width:104px;height:104px;border-radius:16px;box-shadow:0 10px 18px -12px rgba(27,39,36,.6)}
+.thumb{width:124px;height:124px;border-radius:20px;box-shadow:0 12px 20px -14px rgba(27,39,36,.65)}
 .row .body{flex:1;min-width:0;display:flex;flex-direction:column}
-.row h3{margin:0;font:700 20px/1.25 var(--serif)}
-.row p{margin:3px 0 10px;font-size:14.5px;line-height:1.45;color:var(--muted)}
-.row .price{font-size:20px;padding:6px 13px;border-radius:12px}
+.row h3{margin:0;font:700 21px/1.25 var(--serif)}
+.row p{margin:3px 0 10px;font-size:15px;line-height:1.45;color:var(--muted)}
+.row .buy{flex-wrap:wrap;gap:6px 10px}
+.row .price{font-size:21px;padding:7px 14px;border-radius:12px;order:-1}
 .row .price small{font-size:14px}
-.row .unit{font-size:13.5px}
+.row .unit{font-size:14.5px}
+.row .dots{display:none}
 
 /* promo */
-.promo{position:relative;overflow:hidden;margin-top:30px;border-radius:var(--r-lg);padding:20px 132px 20px 20px;min-height:124px;
+.promo{position:relative;overflow:hidden;margin-top:34px;border-radius:var(--r-lg);padding:22px 142px 22px 20px;min-height:136px;
   background:linear-gradient(120deg,#FFF3D6,#F7E2B0);border:1px solid #F0D99A;box-shadow:var(--shadow)}
 .promo small{display:block;font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--terra)}
-.promo b{display:block;margin:6px 0 4px;font:700 21px/1.2 var(--serif);color:var(--em-d)}
-.promo span{font-size:14.5px;color:#6B5A33}
-.promo .pic{position:absolute;right:-14px;top:50%;transform:translateY(-50%);width:132px;height:132px;box-shadow:0 0 0 5px rgba(255,255,255,.6),0 16px 26px -14px rgba(0,0,0,.5)}
+.promo b{display:block;margin:6px 0 4px;font:700 22px/1.2 var(--serif);color:var(--em-d)}
+.promo span{font-size:15px;color:#6B5A33}
+.promo .pic{position:absolute;right:-14px;top:50%;transform:translateY(-50%);width:144px;height:144px;box-shadow:0 0 0 5px rgba(255,255,255,.6),0 16px 26px -14px rgba(0,0,0,.5)}
 
 /* empty state */
 .empty{margin:36px 0 10px;text-align:center;color:var(--muted)}
 .empty b{display:block;font:700 20px var(--serif);color:var(--ink);margin-bottom:4px}
 
 /* ---------- Footer ---------- */
-.foot{margin-top:44px;color:#fff;background-color:var(--em-d);border-radius:var(--r-lg) var(--r-lg) 0 0;padding:30px 0 max(26px,env(safe-area-inset-bottom))}
+.foot{margin-top:48px;color:#fff;background-color:var(--em-d);border-radius:var(--r-lg) var(--r-lg) 0 0;padding:30px 0 max(26px,env(safe-area-inset-bottom))}
 .foot-brand{display:flex;align-items:center;gap:11px}
-.foot-brand .logo{width:44px;height:44px}
+.foot-brand .logo{width:46px;height:46px}
 .foot-brand b{display:block;font:700 22px/1.1 var(--serif)}
-.foot-brand i{font:italic 500 13.5px var(--serif);color:var(--gold-l)}
+.foot-brand i{font:italic 500 14px var(--serif);color:var(--gold-l)}
 .info{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:10px}
 .info li{display:flex;gap:13px;align-items:center;padding:13px 14px;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid rgba(235,207,133,.16)}
 .info .ic{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(235,207,133,.14);color:var(--gold-l)}
@@ -221,7 +249,7 @@ a{color:inherit}
 .copy{margin:6px 0 0;text-align:center;font-size:13px;color:rgba(255,255,255,.5)}
 
 /* back to top */
-.totop{position:fixed;right:16px;bottom:max(18px,env(safe-area-inset-bottom));z-index:40;width:52px;height:52px;border:0;border-radius:50%;cursor:pointer;display:grid;place-items:center;
+.totop{position:fixed;right:16px;bottom:max(18px,env(safe-area-inset-bottom));z-index:40;width:54px;height:54px;border:0;border-radius:50%;cursor:pointer;display:grid;place-items:center;
   background:linear-gradient(135deg,#F6E2A6,#C9A14A 65%,#B48A33);color:#2D2108;box-shadow:0 12px 24px -10px rgba(140,106,31,.9);
   opacity:0;transform:translateY(16px) scale(.9);pointer-events:none;transition:opacity .3s,transform .3s var(--ease)}
 .totop.show{opacity:1;transform:none;pointer-events:auto}
@@ -233,16 +261,19 @@ a{color:inherit}
 
 @media (max-width:359px){
   .langs button{font-size:13px}
-  .thumb{width:84px;height:84px}
-  .card h3{font-size:21px}
+  .thumb{width:96px;height:96px}
+  .card h3{font-size:23px}
+  .price{font-size:23px;padding:8px 14px}
   .hero-txt{max-width:62%}
-  .hero-img{width:150px;height:150px;right:-34px}
-  .brand h1{font-size:21px}
-  .logo{width:42px;height:42px}
+  .hero-img{width:156px;height:156px;right:-36px}
+  .brand h1{font-size:22px}
+  .logo{width:44px;height:44px}
+  .promo{padding-right:120px}
+  .promo .pic{width:124px;height:124px}
 }
 @media (min-width:600px){
-  .hero h2{font-size:30px}
-  .hero-img{right:6px}
+  .hero h2{font-size:32px}
+  .hero-img{right:8px;width:200px;height:200px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -277,8 +308,6 @@ a{color:inherit}
   <symbol id="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></symbol>
   <symbol id="search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
   <symbol id="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
-  <symbol id="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></symbol>
-  <symbol id="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
   <symbol id="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
   <symbol id="phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
   <symbol id="clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
@@ -351,9 +380,14 @@ a{color:inherit}
 
 <noscript><p style="text-align:center;padding:20px">Menyuni ko’rish uchun JavaScript yoqilgan bo’lishi kerak.</p></noscript>
 
+<!-- Menyu ma'lumotlari: server bu yerga joriy menyuni qo'yadi (admin paneldan o'zgartiriladi).
+     Bo'sh qolsa (masalan, GitHub Pages'da), menu.json faylidan o'qiladi. -->
+<script id="menu-data" type="application/json"></script>
+
 <script>
 /* =====================================================================
    SOZLAMALAR
+   Taomlar, narxlar va rasmlar endi ADMIN PANELDA o'zgartiriladi: /admin
    ===================================================================== */
 const DEFAULT_LANG = "uz";                // asosiy til
 const OPEN_HOUR = 10, CLOSE_HOUR = 23;    // ish vaqti
@@ -377,7 +411,7 @@ const T = {
     search:"Taom qidirish… masalan, osh",
     heroEyebrow:"Oshpaz tavsiyasi", heroTitle:"Ko’mir olovida <em>shashliklar</em>",
     heroText:"Har bir six buyurtmangiz bilan yangi pishiriladi", heroBtn:"Ko’rish",
-    count:n => n + " ta taom",
+    count:n => n + " ta taom", soldOut:"Tugadi",
     promoLabel:"Maxsus taklif", promoTitle:"Oshga bir choynak choy — sovg’a!", promoText:"Har kuni 12:00 dan 15:00 gacha",
     emptyTitle:"Hech narsa topilmadi", emptyText:"Boshqa so’z bilan qidirib ko’ring",
     motto:"Mehmon — otangdan ulug’",
@@ -385,7 +419,7 @@ const T = {
     phoneLabel:"Telefon", hoursLabel:"Ish vaqti", hours:"Har kuni 10:00 – 23:00",
     call:"Qo’ng’iroq", map:"Xaritada",
     note:"Narxlar Koreya vonida (₩) ko’rsatilgan",
-    copy:"© 2026 Milliy Taomlar · Demo menyu · Rasmlar: Pexels"
+    copy:"© 2026 Milliy Taomlar · Rasmlar: Pexels"
   },
   ru:{
     title:"Milliy Taomlar — Меню", lang:"Выбрать язык", cats:"Категории", top:"Наверх", clear:"Очистить",
@@ -394,6 +428,7 @@ const T = {
     heroEyebrow:"Выбор шефа", heroTitle:"Шашлыки <em>на углях</em>",
     heroText:"Каждый шампур готовим под ваш заказ", heroBtn:"Смотреть",
     count:n => { const a = n % 10, b = n % 100; return n + " " + (a === 1 && b !== 11 ? "блюдо" : a >= 2 && a <= 4 && (b < 12 || b > 14) ? "блюда" : "блюд"); },
+    soldOut:"Закончилось",
     promoLabel:"Специальное предложение", promoTitle:"К плову — чайник чая в подарок!", promoText:"Ежедневно с 12:00 до 15:00",
     emptyTitle:"Ничего не найдено", emptyText:"Попробуйте другой запрос",
     motto:"Гость — превыше всего",
@@ -401,7 +436,7 @@ const T = {
     phoneLabel:"Телефон", hoursLabel:"Часы работы", hours:"Ежедневно 10:00 – 23:00",
     call:"Позвонить", map:"На карте",
     note:"Цены указаны в корейских вонах (₩)",
-    copy:"© 2026 Milliy Taomlar · Демо-меню · Фото: Pexels"
+    copy:"© 2026 Milliy Taomlar · Фото: Pexels"
   },
   ko:{
     title:"Milliy Taomlar — 메뉴", lang:"언어 선택", cats:"카테고리", top:"맨 위로", clear:"지우기",
@@ -409,7 +444,7 @@ const T = {
     search:"메뉴 검색… 예: 플롭",
     heroEyebrow:"셰프 추천", heroTitle:"숯불에 구운 <em>샤슬릭</em>",
     heroText:"모든 꼬치는 주문 즉시 구워드립니다", heroBtn:"보기",
-    count:n => n + "개 메뉴",
+    count:n => n + "개 메뉴", soldOut:"품절",
     promoLabel:"스페셜 혜택", promoTitle:"플롭 주문 시 차 한 주전자 무료!", promoText:"매일 12:00 – 15:00",
     emptyTitle:"검색 결과가 없습니다", emptyText:"다른 단어로 검색해 보세요",
     motto:"손님을 가장 귀하게 모십니다",
@@ -417,7 +452,7 @@ const T = {
     phoneLabel:"전화", hoursLabel:"영업시간", hours:"매일 10:00 – 23:00",
     call:"전화하기", map:"지도 보기",
     note:"모든 가격은 원화(₩) 기준입니다",
-    copy:"© 2026 Milliy Taomlar · 데모 메뉴 · 사진: Pexels"
+    copy:"© 2026 Milliy Taomlar · 사진: Pexels"
   },
   en:{
     title:"Milliy Taomlar — Menu", lang:"Choose language", cats:"Categories", top:"Back to top", clear:"Clear",
@@ -425,7 +460,7 @@ const T = {
     search:"Search dishes… e.g. plov",
     heroEyebrow:"Chef’s pick", heroTitle:"Charcoal-grilled <em>shashlik</em>",
     heroText:"Every skewer is grilled fresh to order", heroBtn:"View",
-    count:n => n + (n === 1 ? " dish" : " dishes"),
+    count:n => n + (n === 1 ? " dish" : " dishes"), soldOut:"Sold out",
     promoLabel:"Special offer", promoTitle:"A free pot of tea with every plov!", promoText:"Daily from 12:00 to 15:00",
     emptyTitle:"Nothing found", emptyText:"Try a different word",
     motto:"Our guests are honored above all",
@@ -433,7 +468,7 @@ const T = {
     phoneLabel:"Phone", hoursLabel:"Opening hours", hours:"Daily 10:00 – 23:00",
     call:"Call us", map:"Open map",
     note:"Prices are in Korean won (₩)",
-    copy:"© 2026 Milliy Taomlar · Demo menu · Photos: Pexels"
+    copy:"© 2026 Milliy Taomlar · Photos: Pexels"
   }
 };
 
@@ -451,134 +486,22 @@ const UNITS = {
   bowl:   { uz:"1 kosa",     ru:"1 пиала",   ko:"1그릇",    en:"1 bowl" },
   pot:    { uz:"1 choynak",  ru:"1 чайник",  ko:"1주전자",  en:"1 teapot" },
   liter:  { uz:"1 litr",     ru:"1 л",       ko:"1L",       en:"1 L" },
-  half:   { uz:"0,5 litr",   ru:"0,5 л",     ko:"0.5L",     en:"0.5 L" }
+  half:   { uz:"0,5 litr",   ru:"0,5 л",     ko:"0.5L",     en:"0.5 L" },
+  glass:  { uz:"1 stakan",   ru:"1 стакан",  ko:"1잔",      en:"1 glass" },
+  kg:     { uz:"1 kg",       ru:"1 кг",      ko:"1kg",      en:"1 kg" },
+  g100:   { uz:"100 gramm",  ru:"100 г",     ko:"100g",     en:"100 g" }
 };
 
-/* =====================================================================
-   MENYU — taom, narx va rasmlarni shu yerda o'zgartiring
-   p    = narx (Koreya vonida, faqat raqam)
-   u    = o'lchov (UNITS ichidan: portion, skewer, piece, bowl, pot, liter, half)
-   img  = Pexels rasm raqami (pexels.com/photo/...-RAQAM/)
-   tag  = "hit", "new", "hot", "season"
-   feat = true bo'lsa — keng "tavsiya" kartochka; ribbon = ustidagi oltin yozuv
-   ===================================================================== */
-const MENU = [
-  { id:"osh",
-    title:{ uz:"Osh", ru:"Плов", ko:"플롭", en:"Plov" },
-    chip: { uz:"Osh", ru:"Плов", ko:"플롭", en:"Plov" },
-    sub:  { uz:"Dasturxonimiz shohi — qozonda, o’tin olovida", ru:"Царь нашего дастархана — в казане, на дровах", ko:"우즈벡 식탁의 왕 — 장작불 가마솥 요리", en:"The king of our table — cooked in a kazan over wood fire" },
-    thumb:{ id:"10522937", pos:"50% 85%" },
-    items:[
-      { n:{ uz:"To’y oshi", ru:"Свадебный плов", ko:"잔치 플롭", en:"Wedding plov" },
-        d:{ uz:"Qo’y go’shti, devzira guruch, sariq sabzi, no’xat va mayiz bilan", ru:"Баранина, рис девзира, жёлтая морковь, нут и изюм", ko:"양고기, 데브지라 쌀, 노란 당근, 병아리콩, 건포도", en:"Lamb, devzira rice, yellow carrots, chickpeas and raisins" },
-        p:13000, u:"portion", img:{ id:"10522937", pos:"50% 76%" }, tag:"hit", feat:true,
-        ribbon:{ uz:"Eng ko’p buyuriladi", ru:"Хит продаж", ko:"가장 인기", en:"Best seller" } },
-      { n:{ uz:"Choyxona oshi", ru:"Чайханский плов", ko:"차이하나 플롭", en:"Teahouse plov" },
-        d:{ uz:"Qazi va bedana tuxumi bilan, choyxona uslubida damlangan", ru:"С казы и перепелиными яйцами, по-чайхански", ko:"말고기 소시지(카지)와 메추리알을 올린 찻집 스타일", en:"With kazy sausage and quail eggs, teahouse style" },
-        p:14000, u:"portion", img:{ id:"10522937", z:1.85, o:"86% 44%" } },
-      { n:{ uz:"Samarqand oshi", ru:"Самаркандский плов", ko:"사마르칸트 플롭", en:"Samarkand plov" },
-        d:{ uz:"Guruch aralashtirilmay damlanadi, go’sht ustidan tortiladi", ru:"Рис не перемешивают, мясо подают сверху", ko:"쌀을 섞지 않고 쪄내 고기를 위에 올립니다", en:"Rice steamed unmixed, served with meat on top" },
-        p:15000, u:"portion", img:{ id:"10522937", z:2.1, o:"74% 80%" } }
-    ]},
-  { id:"shashliklar",
-    title:{ uz:"Shashliklar", ru:"Шашлыки", ko:"샤슬릭", en:"Shashlik" },
-    chip: { uz:"Shashlik", ru:"Шашлык", ko:"샤슬릭", en:"Shashlik" },
-    sub:  { uz:"Ko’mir olovida · narxi 1 six uchun", ru:"На углях · цена за 1 шампур", ko:"숯불구이 · 꼬치 1개 가격", en:"Charcoal-grilled · price per skewer" },
-    thumb:"7866189",
-    items:[
-      { n:{ uz:"Qo’y go’shti", ru:"Из баранины", ko:"양고기 꼬치", en:"Lamb" },
-        d:{ uz:"Yumshoq qo’zichoq go’shti va dumba, piyoz bilan tortiladi", ru:"Нежная молодая баранина с курдюком, подаётся с луком", ko:"부드러운 어린 양고기와 꼬리 지방, 양파 곁들임", en:"Tender young lamb with fat-tail, served with onions" },
-        p:7000, u:"skewer", img:"7866189", tag:"hit", feat:true,
-        ribbon:{ uz:"Oshpaz tavsiyasi", ru:"Выбор шефа", ko:"셰프 추천", en:"Chef’s choice" } },
-      { n:{ uz:"Mol go’shti", ru:"Из говядины", ko:"소고기 꼬치", en:"Beef" },
-        d:{ uz:"Marinadlangan mol go’shti, ziravor va piyoz bilan", ru:"Маринованная говядина со специями и луком", ko:"향신료와 양파에 재운 소고기", en:"Marinated beef with spices and onions" },
-        p:6500, u:"skewer", img:"17312401" },
-      { n:{ uz:"Jigar", ru:"Печень", ko:"간 꼬치", en:"Liver" },
-        d:{ uz:"Qo’y jigari dumba bilan, ko’mirda pishirilgan", ru:"Баранья печень с курдюком на углях", ko:"양 간과 꼬리 지방, 숯불구이", en:"Lamb liver with fat-tail, grilled over charcoal" },
-        p:5000, u:"skewer", img:"2233730" },
-      { n:{ uz:"Qiyma kabob", ru:"Люля-кебаб", ko:"다진 고기 케밥", en:"Lula kebab" },
-        d:{ uz:"Qo’lda maydalangan go’sht, zira va piyoz bilan", ru:"Рубленое вручную мясо с зирой и луком", ko:"손으로 다진 고기, 커민과 양파", en:"Hand-minced meat with cumin and onions" },
-        p:5500, u:"skewer", img:"14457216" },
-      { n:{ uz:"Tovuq", ru:"Из курицы", ko:"닭고기 꼬치", en:"Chicken" },
-        d:{ uz:"Tovuq filesi, maxsus sousda marinadlangan", ru:"Куриное филе в фирменном маринаде", ko:"특제 소스에 재운 닭가슴살", en:"Chicken fillet in our signature marinade" },
-        p:4500, u:"skewer", img:"7474082", tag:"new" }
-    ]},
-  { id:"somsalar",
-    title:{ uz:"Somsalar", ru:"Самса", ko:"삼사", en:"Samsa" },
-    chip: { uz:"Somsa", ru:"Самса", ko:"삼사", en:"Samsa" },
-    sub:  { uz:"Har kuni ertalabdan tandirdan uziladi", ru:"Каждое утро — свежая из тандыра", ko:"매일 아침 탄디르 화덕에서 갓 구워냅니다", en:"Fresh from the tandoor every morning" },
-    thumb:"36170557",
-    items:[
-      { n:{ uz:"Tandir somsa", ru:"Тандырная самса", ko:"탄디르 삼사", en:"Tandoor samsa" },
-        d:{ uz:"Tandirda pishgan, qo’y go’shti va dumba bilan", ru:"Из тандыра, с бараниной и курдюком", ko:"탄디르 화덕에서 구운 양고기 삼사", en:"Baked in the tandoor with lamb and fat-tail" },
-        p:4000, u:"piece", img:"36170557", feat:true,
-        ribbon:{ uz:"Tandirdan yangi", ru:"Прямо из тандыра", ko:"화덕에서 갓 나온", en:"Fresh from the tandoor" } },
-      { n:{ uz:"Go’shtli somsa", ru:"Самса с мясом", ko:"고기 삼사", en:"Meat samsa" },
-        d:{ uz:"Qatlama xamir, mol go’shti va piyoz", ru:"Слоёное тесто, говядина и лук", ko:"바삭한 겹반죽에 소고기와 양파", en:"Flaky pastry with beef and onions" },
-        p:3500, u:"piece", img:"23286188" },
-      { n:{ uz:"Qovoqli somsa", ru:"Самса с тыквой", ko:"호박 삼사", en:"Pumpkin samsa" },
-        d:{ uz:"Shirin qovoq, piyoz va qora murch bilan", ru:"Сладкая тыква, лук и чёрный перец", ko:"달콤한 호박, 양파, 후추", en:"Sweet pumpkin, onions and black pepper" },
-        p:3000, u:"piece", img:{ id:"14477873", z:1.18, o:"0% 45%" }, tag:"season" }
-    ]},
-  { id:"suyuq",
-    title:{ uz:"Suyuq ovqatlar", ru:"Супы", ko:"수프", en:"Soups" },
-    chip: { uz:"Suyuq ovqat", ru:"Супы", ko:"수프", en:"Soups" },
-    sub:  { uz:"Issiq va to’yimli, uy ta’mida", ru:"Горячие и сытные, как дома", ko:"따뜻하고 든든한 집밥의 맛", en:"Hot, hearty and homemade" },
-    thumb:"1731535",
-    items:[
-      { n:{ uz:"Sho’rva", ru:"Шурпа", ko:"쇼르바", en:"Shurpa" },
-        d:{ uz:"Qo’y go’shti, kartoshka, sabzi va no’xatli tiniq sho’rva", ru:"Прозрачный суп с бараниной, картофелем, морковью и нутом", ko:"양고기, 감자, 당근, 병아리콩을 넣은 맑은 수프", en:"Clear lamb soup with potatoes, carrots and chickpeas" },
-        p:12000, u:"bowl", img:"10338451" },
-      { n:{ uz:"Mastava", ru:"Мастава", ko:"마스타바", en:"Mastava" },
-        d:{ uz:"Guruch, go’sht va sabzavotli quyuq sho’rva, qatiq bilan", ru:"Густой суп с рисом, мясом и овощами, с катыком", ko:"쌀, 고기, 채소를 넣은 걸쭉한 수프와 요거트", en:"Thick rice soup with meat and vegetables, with yogurt" },
-        p:11000, u:"bowl", img:"360939" },
-      { n:{ uz:"Lag’mon", ru:"Лагман", ko:"라그몬", en:"Lagman" },
-        d:{ uz:"Qo’lda cho’zilgan ugra, go’sht va sabzavotli vaju bilan", ru:"Тянутая вручную лапша с мясом и овощами", ko:"손으로 뽑은 면에 고기와 채소 소스", en:"Hand-pulled noodles with meat and vegetable sauce" },
-        p:12000, u:"bowl", img:"1731535", tag:"hit" },
-      { n:{ uz:"Chuchvara", ru:"Чучвара", ko:"추츠바라", en:"Chuchvara" },
-        d:{ uz:"Mayda tugilgan go’shtli chuchvara, qatiq va ko’kat bilan", ru:"Маленькие пельмени с мясом, катыком и зеленью", ko:"고기를 넣은 작은 만두, 요거트와 허브", en:"Small meat dumplings with yogurt and herbs" },
-        p:11000, u:"bowl", img:"939052" }
-    ]},
-  { id:"salatlar",
-    title:{ uz:"Salatlar", ru:"Салаты", ko:"샐러드", en:"Salads" },
-    chip: { uz:"Salat", ru:"Салаты", ko:"샐러드", en:"Salads" },
-    sub:  { uz:"Yangi uzilgan sabzavotlardan", ru:"Из свежих овощей", ko:"신선한 채소로 만듭니다", en:"Made from fresh vegetables" },
-    thumb:"7954630",
-    items:[
-      { n:{ uz:"Achchiq-chuchuk", ru:"Аччик-чучук", ko:"아치크추추크", en:"Achchiq-chuchuk" },
-        d:{ uz:"Pomidor, bodring, piyoz va achchiq qalampir — osh bilan eng zo’ri", ru:"Помидоры, огурцы, лук и острый перец — лучший спутник плова", ko:"토마토, 오이, 양파, 매운 고추 — 플롭과 최고의 궁합", en:"Tomatoes, cucumber, onion and hot pepper — perfect with plov" },
-        p:6000, u:"portion", img:"1555814", tag:"hot", feat:true,
-        ribbon:{ uz:"Osh bilan tavsiya", ru:"Лучше всего к плову", ko:"플롭과 함께", en:"Best with plov" } },
-      { n:{ uz:"Shakarob", ru:"Шакароб", ko:"샤카롭", en:"Shakarob" },
-        d:{ uz:"Yupqa to’g’ralgan pomidor va piyoz, rayhon bilan", ru:"Тонко нарезанные помидоры и лук с базиликом", ko:"얇게 썬 토마토와 양파, 바질", en:"Thinly sliced tomatoes and onions with basil" },
-        p:6000, u:"portion", img:"7954630" },
-      { n:{ uz:"Olivye", ru:"Оливье", ko:"올리비에", en:"Olivier salad" },
-        d:{ uz:"Kartoshka, tuxum, go’sht, tuzlangan bodring va mayonez", ru:"Картофель, яйца, мясо, солёные огурцы и майонез", ko:"감자, 달걀, 고기, 피클, 마요네즈", en:"Potatoes, eggs, meat, pickles and mayonnaise" },
-        p:8000, u:"portion", img:"14846862" }
-    ]},
-  { id:"ichimliklar", list:true,
-    title:{ uz:"Ichimliklar", ru:"Напитки", ko:"음료", en:"Drinks" },
-    chip: { uz:"Ichimlik", ru:"Напитки", ko:"음료", en:"Drinks" },
-    sub:  { uz:"Choy — suhbat ko’rki", ru:"Чай — украшение беседы", ko:"차는 대화의 꽃", en:"Tea — the heart of every conversation" },
-    thumb:"15675497",
-    items:[
-      { n:{ uz:"Ko’k choy", ru:"Зелёный чай", ko:"녹차", en:"Green tea" },
-        d:{ uz:"Choynakda damlangan xushbo’y ko’k choy", ru:"Ароматный зелёный чай в чайнике", ko:"주전자에 우린 향긋한 녹차", en:"Fragrant green tea brewed in a teapot" },
-        p:3000, u:"pot", img:"15675497" },
-      { n:{ uz:"Qora choy", ru:"Чёрный чай", ko:"홍차", en:"Black tea" },
-        d:{ uz:"Quyuq qora choy, choynakda", ru:"Крепкий чёрный чай в чайнике", ko:"진하게 우린 홍차", en:"Strong black tea in a teapot" },
-        p:3000, u:"pot", img:"1493080" },
-      { n:{ uz:"Limonli choy", ru:"Чай с лимоном", ko:"레몬차", en:"Lemon tea" },
-        d:{ uz:"Limon bo’laklari va asal bilan", ru:"С дольками лимона и мёдом", ko:"레몬 조각과 꿀", en:"With lemon slices and honey" },
-        p:5000, u:"pot", img:"14473557" },
-      { n:{ uz:"Kompot", ru:"Компот", ko:"콤포트", en:"Kompot" },
-        d:{ uz:"Uy kompoti, quritilgan mevalardan", ru:"Домашний компот из сухофруктов", ko:"말린 과일로 만든 수제 과일 음료", en:"Homemade dried-fruit drink" },
-        p:6000, u:"liter", img:"11066843" },
-      { n:{ uz:"Ayron", ru:"Айран", ko:"아이란", en:"Ayran" },
-        d:{ uz:"Muzdek qatiq ichimligi, yalpiz bilan", ru:"Холодный кисломолочный напиток с мятой", ko:"민트를 넣은 시원한 요거트 음료", en:"Chilled yogurt drink with mint" },
-        p:3000, u:"half", img:"6341410" }
-    ]}
-];
+/* Rasm yuklanganda: ko'rsatish; "to'liq" rasmlarda haqiqiy nisbatni saqlash */
+const RATIO = {};
+function imgOk(img){
+  img.classList.add("ok");
+  if (img.hasAttribute("data-full") && img.naturalWidth) {
+    const r = img.naturalWidth + " / " + img.naturalHeight;
+    RATIO[img.getAttribute("src")] = r;
+    img.parentNode.style.aspectRatio = r;
+  }
+}
 
 /* ===================================================================== */
 (function(){
@@ -588,6 +511,7 @@ const MENU = [
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   let lang = DEFAULT_LANG;
+  let DATA = { categories: [] };
   const tr = o => (o && typeof o === "object") ? (o[lang] || o[DEFAULT_LANG] || "") : (o || "");
   const ui = k => T[lang][k] !== undefined ? T[lang][k] : T[DEFAULT_LANG][k];
   const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -595,50 +519,65 @@ const MENU = [
 
   /* Narx: uz/ru → 13 000 ₩ · ko → 13,000원 · en → ₩13,000 */
   function priceHTML(it){
-    const sp = String(it.p).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    const sp = String(it.p).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     const cm = String(it.p).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     const v = lang === "ko" ? cm + "<small>원</small>"
             : lang === "en" ? "<small>₩</small>" + cm
             : sp + " <small>₩</small>";
-    return '<div class="buy"><span class="price">' + v + '</span><span class="unit">' + esc(tr(UNITS[it.u]) || it.u) + '</span></div>';
+    return '<div class="buy"><span class="unit">' + esc(tr(UNITS[it.u]) || "") + '</span><i class="dots"></i>' +
+      (it.off ? '<span class="mini-off">' + esc(ui("soldOut")) + '</span>' : "") +
+      '<span class="price">' + v + '</span></div>';
   }
 
-  /* Pexels rasm havolasi */
-  function src(spec, w, h){
-    const s = typeof spec === "string" ? { id: spec } : spec;
+  /* Rasm havolasi: Pexels raqami yoki admin paneldan yuklangan rasm (/uploads/...) */
+  function src(spec, w, h, full){
+    const s = typeof spec === "string" ? { id: spec } : (spec || {});
+    if (/^\/|^https?:/.test(s.id || "")) return s.id;
     const base = "https://images.pexels.com/photos/" + s.id + "/pexels-photo-" + s.id + ".jpeg?auto=compress&cs=tinysrgb";
-    if (s.z || s.pos) return base + "&w=" + Math.min(1000, Math.round(w * 2 * (s.z || 1)));
+    if (full || s.z || s.pos) return base + "&w=" + Math.min(1400, Math.round(w * 2 * (s.z || 1)));
     return base + "&fit=crop&w=" + Math.round(w * 2) + "&h=" + Math.round(h * 2);
   }
-  function pic(spec, w, h, alt, cls, eager){
+  function pic(spec, w, h, alt, cls, eager, full){
+    if (!spec) return '<figure class="pic ' + cls + '"><svg class="ph" aria-hidden="true"><use href="#cloche"/></svg></figure>';
     const s = typeof spec === "string" ? { id: spec } : spec;
+    const url = src(s, w, h, full);
     let st = "";
-    if (s.pos) st += "object-position:" + s.pos + ";";
-    if (s.z) st += "transform:scale(" + s.z + ");transform-origin:" + (s.o || "50% 50%") + ";";
-    return '<figure class="pic ' + cls + '">' +
+    if (s.pos && !full) st += "object-position:" + s.pos + ";";
+    if (s.z && !full) st += "transform:scale(" + s.z + ");transform-origin:" + (s.o || "50% 50%") + ";";
+    return '<figure class="pic ' + cls + '"' + (full && RATIO[url] ? ' style="aspect-ratio:' + RATIO[url] + '"' : "") + '>' +
       '<svg class="ph" aria-hidden="true"><use href="#cloche"/></svg>' +
-      '<img src="' + src(s, w, h) + '" alt="' + esc(alt) + '" width="' + w + '" height="' + h + '"' +
+      '<img src="' + esc(url) + '" alt="' + esc(alt) + '"' + (full ? " data-full" : ' width="' + w + '" height="' + h + '"') +
       (eager ? ' fetchpriority="high"' : ' loading="lazy"') + ' decoding="async"' +
       (st ? ' style="' + st + '"' : "") +
-      ' onload="this.classList.add(\'ok\')" onerror="this.remove()">' +
+      ' onload="imgOk(this)" onerror="this.remove()">' +
       '</figure>';
   }
   const origHTML = it => lang !== DEFAULT_LANG ? '<span class="orig">' + esc(it.n[DEFAULT_LANG]) + '</span>' : "";
   const searchKey = (it, cat) => " " + norm([tr(it.n), it.n[DEFAULT_LANG], tr(it.d), tr(cat.title), cat.title[DEFAULT_LANG]].join(" "));
 
   function cardHTML(it, i, cat){
-    const name = tr(it.n), feat = !!it.feat;
-    const tag = it.tag ? '<span class="tag t-' + it.tag + '">' + esc(tr(TAGS[it.tag])) + '</span>' : "";
-    return '<article class="card' + (feat ? " feat" : "") + ' rv" data-q="' + esc(searchKey(it, cat)) + '">' +
+    const name = tr(it.n), feat = !!it.feat, desc = tr(it.d);
+    const tag = it.tag && !it.off && TAGS[it.tag] ? '<span class="tag t-' + it.tag + '">' + esc(tr(TAGS[it.tag])) + '</span>' : "";
+    return '<article class="card' + (feat ? " feat" : "") + (it.off ? " off" : "") + ' rv" data-q="' + esc(searchKey(it, cat)) + '">' +
       (feat && it.ribbon ? '<span class="ribbon"><svg aria-hidden="true"><use href="#star"/></svg>' + esc(tr(it.ribbon)) + '</span>' : "") +
-      pic(it.img, 400, 250, name, "photo") +
-      '<span class="num">' + (i + 1) + '</span>' + tag +
-      '<div class="body">' + origHTML(it) + '<h3>' + esc(name) + '</h3><p>' + esc(tr(it.d)) + '</p>' + priceHTML(it) + '</div></article>';
+      '<div class="media">' + pic(it.img, 520, 390, name, "photo" + (it.full ? " full" : ""), false, !!it.full) +
+        '<span class="num">' + (i + 1) + '</span>' + tag +
+        (it.off ? '<span class="stamp">' + esc(ui("soldOut")) + '</span>' : "") + '</div>' +
+      '<div class="body">' + origHTML(it) + '<h3>' + esc(name) + '</h3>' + (desc ? '<p>' + esc(desc) + '</p>' : "") + priceHTML(it) + '</div></article>';
   }
   function rowHTML(it, cat){
-    const name = tr(it.n);
-    return '<article class="row" data-q="' + esc(searchKey(it, cat)) + '">' + pic(it.img, 104, 104, name, "thumb") +
-      '<div class="body">' + origHTML(it) + '<h3>' + esc(name) + '</h3><p>' + esc(tr(it.d)) + '</p>' + priceHTML(it) + '</div></article>';
+    const name = tr(it.n), desc = tr(it.d);
+    return '<article class="row' + (it.off ? " off" : "") + '" data-q="' + esc(searchKey(it, cat)) + '">' + pic(it.img, 124, 124, name, "thumb") +
+      '<div class="body">' + origHTML(it) + '<h3>' + esc(name) + '</h3>' + (desc ? '<p>' + esc(desc) + '</p>' : "") + priceHTML(it) + '</div></article>';
+  }
+
+  /* Ko'rsatiladigan taomlar: tugaganlari oxirida (yoki butunlay yashirilgan) */
+  function visibleMenu(){
+    const hide = DATA.settings && DATA.settings.soldOut === "hide";
+    return (DATA.categories || []).map(c => {
+      const items = (c.items || []).filter(it => it && it.n && !(hide && it.off));
+      return Object.assign({}, c, { items: items.filter(it => !it.off).concat(items.filter(it => it.off)) });
+    }).filter(c => c.items.length);
   }
 
   /* --- Elementlar --- */
@@ -650,30 +589,31 @@ const MENU = [
   /* --- Menyuni chizish --- */
   function renderMenu(){
     let html = "", chips = "";
-    MENU.forEach((cat, ci) => {
-      chips += '<button class="chip" type="button" data-go="' + cat.id + '">' + pic(cat.thumb, 36, 36, "", "round", true) + '<span>' + esc(tr(cat.chip)) + '</span></button>';
+    visibleMenu().forEach((cat, ci) => {
+      chips += '<button class="chip" type="button" data-go="' + esc(cat.id) + '">' + pic(cat.thumb || cat.items[0].img, 42, 42, "", "round", true) + '<span>' + esc(tr(cat.chip) || tr(cat.title)) + '</span></button>';
       const body = cat.list
         ? '<div class="list rv">' + cat.items.map(it => rowHTML(it, cat)).join("") + '</div>'
         : '<div class="grid">' + cat.items.map((it, i) => cardHTML(it, i, cat)).join("") + '</div>';
-      html += '<section class="sec wrap" id="' + cat.id + '" aria-labelledby="h-' + cat.id + '">' +
+      const sub = tr(cat.sub);
+      html += '<section class="sec wrap" id="' + esc(cat.id) + '" aria-labelledby="h-' + esc(cat.id) + '">' +
         '<div class="sec-hd rv"><span class="sec-no">' + String(ci + 1).padStart(2, "0") + '</span>' +
-        '<h2 id="h-' + cat.id + '">' + esc(tr(cat.title)) + '</h2><span class="sec-count">' + esc(ui("count")(cat.items.length)) + '</span></div>' +
-        '<p class="sec-sub rv">' + esc(tr(cat.sub)) + '</p>' + body + '</section>';
+        '<h2 id="h-' + esc(cat.id) + '">' + esc(tr(cat.title)) + '</h2><span class="sec-count">' + esc(ui("count")(cat.items.length)) + '</span></div>' +
+        (sub ? '<p class="sec-sub rv">' + esc(sub) + '</p>' : "") + body + '</section>';
       if (PROMO && PROMO.after === cat.id) {
-        html += '<div class="wrap promo-wrap"><aside class="promo rv"><small>' + esc(ui("promoLabel")) + '</small><b>' + esc(ui("promoTitle")) + '</b><span>' + esc(ui("promoText")) + '</span>' + pic(PROMO.img, 132, 132, "", "round") + '</aside></div>';
+        html += '<div class="wrap promo-wrap"><aside class="promo rv"><small>' + esc(ui("promoLabel")) + '</small><b>' + esc(ui("promoTitle")) + '</b><span>' + esc(ui("promoText")) + '</span>' + pic(PROMO.img, 144, 144, "", "round") + '</aside></div>';
       }
     });
     main.innerHTML = html;
     catsIn.innerHTML = chips;
-    $("#heroImg").innerHTML = pic(HERO_IMG, 178, 178, ui("heroTitle").replace(/<[^>]+>/g, ""), "round", true);
-    $$(".pic img").forEach(img => { if (img.complete && img.naturalWidth) img.classList.add("ok"); });
+    $("#heroImg").innerHTML = pic(HERO_IMG, 190, 190, ui("heroTitle").replace(/<[^>]+>/g, ""), "round", true);
+    $$(".pic img").forEach(img => { if (img.complete && img.naturalWidth) imgOk(img); });
 
     sections = $$(".sec", main);
     chipEls = $$(".chip", catsIn);
     promos = $$(".promo-wrap", main);
     active = null;
 
-    $$(".grid").forEach(g => $$(".card", g).forEach((c, i) => c.style.setProperty("--d", (i % 2) * 90 + Math.floor(i / 2) * 40 + "ms")));
+    $$(".grid").forEach(g => $$(".card", g).forEach((c, i) => c.style.setProperty("--d", Math.min(i, 3) * 60 + "ms")));
     if (firstRender && !reduced && "IntersectionObserver" in window) {
       io = new IntersectionObserver(es => es.forEach(e => {
         if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
@@ -722,7 +662,6 @@ const MENU = [
     const b = e.target.closest("[data-lang]");
     if (b && b.dataset.lang !== lang) setLang(b.dataset.lang);
   });
-  document.addEventListener("keydown", e => { if (e.key === "Escape") menuOpen(false); });
 
   /* --- Yopishqoq panel va faol bo'lim --- */
   function setNavH(){ document.documentElement.style.setProperty("--nav-h", cats.offsetHeight + "px"); }
@@ -800,12 +739,39 @@ const MENU = [
   q.addEventListener("input", filter);
   qClear.addEventListener("click", () => { q.value = ""; filter(); q.focus(); });
 
+  /* --- Admin paneldagi o'zgarishlar ochiq turgan telefonlarda ham yangilanadi --- */
+  function watchUpdates(){
+    let busy = false;
+    const poll = () => {
+      if (document.hidden || busy) return;
+      busy = true;
+      fetch("/api/menu", { cache: "no-store" }).then(r => r.ok ? r.json() : null).then(d => {
+        if (d && Array.isArray(d.categories) && d.version !== DATA.version) {
+          DATA = d;
+          renderMenu(); setNavH();
+          if (q.value) filter();
+          spy();
+        }
+      }).catch(() => {}).then(() => { busy = false; });
+    };
+    setInterval(poll, 45000);
+    document.addEventListener("visibilitychange", () => { if (!document.hidden) poll(); });
+  }
+
   /* --- Boshlash: ?lang=ru havolasi > saqlangan til > o'zbekcha --- */
-  let start = DEFAULT_LANG;
-  try { start = localStorage.getItem("mt_lang") || start; } catch (e) {}
-  const urlLang = new URLSearchParams(location.search).get("lang");
-  if (urlLang && LANGS[urlLang]) start = urlLang;
-  setLang(start, true);
+  function start(data, live){
+    DATA = data && Array.isArray(data.categories) ? data : { categories: [] };
+    let l = DEFAULT_LANG;
+    try { l = localStorage.getItem("mt_lang") || l; } catch (e) {}
+    const urlLang = new URLSearchParams(location.search).get("lang");
+    if (urlLang && LANGS[urlLang]) l = urlLang;
+    setLang(l, true);
+    if (live) watchUpdates();
+  }
+  let embedded = null;
+  try { const t = $("#menu-data").textContent.trim(); if (t) embedded = JSON.parse(t); } catch (e) {}
+  if (embedded) start(embedded, true);
+  else fetch("menu.json", { cache: "no-cache" }).then(r => r.json()).then(d => start(d, false)).catch(() => start(null, false));
 })();
 </script>
 </body>
