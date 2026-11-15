@@ -60,7 +60,10 @@ SUB = "MENYU · МЕНЮ · " + ko("메뉴") + " · MENU"
 OR = "yoki · или · " + ko("또는") + " · or"
 TITLE = "Qanday foydalaniladi? · How to use"
 QR_WAY = qr_way("Samsung · Android", multi("Kamerani QR kodga qarating", "Наведите камеру на QR-код", "카메라로 QR 코드를 스캔하세요", "Point your camera at the QR code"))
-NFC_WAY = nfc_way("iPhone", multi("<em>1–2 soniya</em> tekkizib turing", "Приложите телефон на <em>1–2 секунды</em>", "휴대폰을 <em>1~2초</em>간 대고 계세요", "Tap and hold for <em>1–2 seconds</em>"))
+NFC_WAY = nfc_way("iPhone", multi("<em>1–2 soniya</em> tekkizib turing<br>Ekran yoniq bo’lsin",
+                                   "Экран включён, держите <em>1–2 сек.</em>",
+                                   "화면을 켜고 <em>1~2초</em>간 대세요",
+                                   "Screen on, hold for <em>1–2 seconds</em>"))
 STEPS = [multi("Skanerlang yoki tekkizing", "Сканируйте или приложите", "스캔하거나 휴대폰을 대세요", "Scan or tap your phone"),
          multi("Havolani bosing", "Нажмите на ссылку", "링크를 누르세요", "Tap the link"),
          multi("Tilni tanlang", "Выберите язык", "언어를 선택하세요", "Choose your language"),
@@ -91,22 +94,22 @@ h1{font:700 19.5pt/1 "Playfair Display",serif;margin-top:1.6mm}
 .sub{margin-top:1.6mm;font-size:6.8pt;line-height:3mm;height:3mm;font-weight:800;letter-spacing:.24em;color:#EBCF85}
 .sub [lang=ko]{letter-spacing:.06em}
 
-.ways{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:3.2mm;width:100%;margin-top:4mm}
+.ways{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:3.2mm;width:100%;margin-top:3.6mm}
 .way{display:flex;flex-direction:column;align-items:center;padding:3.8mm 1.8mm 2.4mm;border-radius:4mm;
   background:rgba(255,255,255,.06);border:.3mm solid rgba(235,207,133,.45)}
 .device{font-size:7.4pt;line-height:4.4mm;height:4.4mm;padding:0 3mm;border-radius:99mm;font-weight:800;letter-spacing:.04em;white-space:nowrap;
   color:#0A3D33;background:linear-gradient(#F3DE9F,#D9B55E);box-shadow:0 0 0 .3mm rgba(255,255,255,.25);margin-bottom:2.2mm}
 .qrbox{background:#fff;border-radius:2.6mm;padding:3.3mm;box-shadow:0 0 0 .6mm rgba(235,207,133,.7)}
-.qrbox svg{display:block;width:28.4mm;height:28.4mm}
-.nfcwrap{width:35mm;height:35mm;display:grid;place-items:center;border-radius:50%;border:.45mm dashed rgba(235,207,133,.75)}
-.nfc{width:28.6mm;height:28.6mm;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6mm;
+.qrbox svg{display:block;width:25.6mm;height:25.6mm}
+.nfcwrap{width:32.2mm;height:32.2mm;display:grid;place-items:center;border-radius:50%;border:.45mm dashed rgba(235,207,133,.75)}
+.nfc{width:26.4mm;height:26.4mm;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6mm;
   background:radial-gradient(circle at 35% 30%,#F8E7B4,#C9A14A 60%,#A87F2C);color:#2D2108;
   box-shadow:0 0 0 1.2mm rgba(235,207,133,.18),inset 0 .6mm 0 rgba(255,255,255,.5)}
-.nfc svg{width:12.5mm;height:12.5mm}
+.nfc svg{width:11.6mm;height:11.6mm}
 .nfc span{font-size:8.5pt;font-weight:800;letter-spacing:.2em}
 .cap{margin-top:2.2mm;text-align:center;font-size:6pt;line-height:1.32;color:rgba(255,255,255,.86)}
 .cap b{color:#fff;font-weight:800;font-size:7.3pt;line-height:1.5}
-.cap em{font-style:normal;font-weight:800;color:#EBCF85}
+.cap em{font-style:normal;font-weight:800;color:#EBCF85;white-space:nowrap}
 .or{position:absolute;left:50%;top:2.2mm;transform:translateX(-50%);padding:.9mm 2.4mm;line-height:1.2;border-radius:99mm;white-space:nowrap;
   background:#0A3D33;border:.35mm solid #C9A14A;color:#EBCF85;font-size:6.6pt;font-weight:800}
 .or{font-size:6pt;padding:.9mm 2mm;top:0;transform:translate(-50%,-50%)}
@@ -118,7 +121,7 @@ h1{font:700 19.5pt/1 "Playfair Display",serif;margin-top:1.6mm}
 .guide li b{color:#0A3D33;font-weight:800}
 .guide i{flex:none;width:5.2mm;height:5.2mm;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:7.4pt;
   color:#fff;background:#0F5B4B;box-shadow:0 0 0 .5mm #EBCF85}
-.guide{margin-top:3.4mm;padding:2.8mm 3.2mm 3mm}
+.guide{margin-top:3mm;padding:2.8mm 3.2mm 3mm}
 .guide h2{font-size:9.6pt;margin-bottom:2.2mm}
 .guide ol{gap:2.2mm 2.6mm}
 .guide li{font-size:5.9pt;line-height:1.32}

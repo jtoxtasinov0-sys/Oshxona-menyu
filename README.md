@@ -21,7 +21,7 @@ NFC stiker va QR kod orqali telefonda ochiladigan restoran menyusi.
 
 - `stol-kartochka-A6.pdf` — ikki tomonlama stol kartochkasi (105×148 mm, 2 sahifa), bosmaxonaga shu faylni bering
   - Ikkala tomon: QR, NFC doirasi va “Qanday foydalaniladi?” qo’llanma — o’zbekcha birinchi, keyin ruscha, koreyscha, inglizcha
-  - QR tepasida **“Samsung · Android”**, NFC tepasida **“iPhone”** yozuvi; NFC ostida “1–2 soniya tekkizib turing”
+  - QR tepasida **“Samsung · Android”**, NFC tepasida **“iPhone”** yozuvi; NFC ostida “1–2 soniya tekkizib turing” va “Ekran yoniq bo’lsin”
     (Android’da NFC ko’pincha o’chiq bo’ladi va uni sayt yoki stiker yoqa olmaydi, shuning uchun ularga QR)
   - NFC doiralari ikki tomonda aynan bir-birining orqasida: bitta stiker ikkala tomonga ishlaydi
 - `stol-kartochka-old.png`, `stol-kartochka-orqa.png` — o’sha kartochka rasm ko’rinishida
