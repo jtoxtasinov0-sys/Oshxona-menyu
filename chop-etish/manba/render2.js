@@ -23,5 +23,9 @@ const HTML = path.join(process.env.WORK || os.tmpdir(), 'card2.html');
   await pages[0].screenshot({ path: OUT + 'stol-kartochka-old.png' });
   await pages[1].screenshot({ path: OUT + 'stol-kartochka-orqa.png' });
   await p.pdf({ path: OUT + 'stol-kartochka-A6.pdf', width: '105mm', height: '148mm', printBackground: true });
+  // Bosmaxona uchun: har tomondan 2 mm bleed (109x152), kesish o'lchami 105x148
+  await p.goto('file://' + HTML.replace(/card2\.html$/, 'card2-bleed.html'), { waitUntil: 'networkidle' });
+  await p.evaluate(() => document.fonts.ready);
+  await p.pdf({ path: OUT + 'stol-kartochka-A6-bleed-2mm.pdf', width: '109mm', height: '152mm', printBackground: true });
   await b.close();
 })();
