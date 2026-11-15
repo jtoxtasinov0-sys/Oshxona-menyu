@@ -11,10 +11,19 @@ NFC stiker va QR kod orqali telefonda ochiladigan restoran menyusi.
 
 | Qayerda | Havola |
 |---|---|
-| GitHub Pages | https://jtoxtasinov0-sys.github.io/oshxona-menyu/ |
+| **Asosiy (Dokploy, NFC va QR shu yerga)** | https://milliytaomlar.hanustoz.tech/ |
+| GitHub Pages (zaxira) | https://jtoxtasinov0-sys.github.io/Oshxona-menyu/ |
 | Ruscha ochish | `...?lang=ru` |
 | Koreyscha ochish | `...?lang=ko` |
 | Inglizcha ochish | `...?lang=en` |
+
+## Chop etish uchun fayllar (`chop-etish/`)
+
+- `stol-kartochka-A6.pdf` — stol uchun kartochka (105×148 mm), bosmaxonaga shu faylni bering
+- `stol-kartochka.png` — o’sha kartochka rasm ko’rinishida
+- `qr-milliytaomlar.svg` / `.png` — faqat QR kod (istalgan o’lchamda sifat yo’qotmaydi: SVG)
+
+Hammasi `https://milliytaomlar.hanustoz.tech/` ga olib boradi.
 
 ## Narx yoki taomni o’zgartirish (terminalsiz)
 
