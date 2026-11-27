@@ -78,6 +78,9 @@ select.inp{background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.o
 .filters::-webkit-scrollbar{display:none}
 .fchip{flex:none;height:40px;padding:0 15px;border-radius:999px;border:1px solid var(--line);background:#fff;font-weight:700;font-size:14.5px;cursor:pointer;white-space:nowrap}
 .fchip[aria-pressed="true"]{background:var(--em);border-color:var(--em);color:#fff}
+.fchip .fc::before{content:"\00a0("}
+.fchip .fc::after{content:")"}
+.fchip .fc.opt{display:none}
 
 /* kategoriya va taomlar */
 .cat{margin-top:22px}
@@ -143,6 +146,8 @@ dialog.ed::backdrop{background:rgba(10,30,25,.55)}
 .photo-box.full{aspect-ratio:auto;min-height:200px}
 .photo-box.full img{height:auto;max-height:70vh;object-fit:contain}
 .photo-box > svg{width:64px;height:64px;opacity:.7}
+.ph-col .chk{margin-top:16px}
+.fields{display:grid;gap:16px}
 .photo-box .up{position:absolute;inset:auto 0 0;padding:8px;background:rgba(10,30,25,.7);color:#fff;font-weight:700;text-align:center;font-size:14px}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .btns{display:flex;flex-wrap:wrap;gap:10px}
@@ -164,6 +169,69 @@ details.more h3{margin:0 0 8px;font-size:13px;font-weight:800;letter-spacing:.14
 .toast.show{opacity:1;transform:translate(-50%,0)}
 .toast.err{background:#9B3320}
 .empty{padding:28px 16px;text-align:center;color:var(--muted)}
+
+/* ---------- Kompyuter: chapda boshqaruv paneli, o'ngda taomlar 2 ustunda ---------- */
+@media (min-width:1024px){
+  body{padding-bottom:56px}
+  .wrap{max-width:1320px;padding:0 32px}
+  .bar{padding:14px 0}
+  .bar .wrap{gap:12px}
+  .brand svg{width:44px;height:44px}
+  .brand b{font-size:22px}
+  .btn-sm{height:40px;padding:0 16px;font-size:14px}
+  .btn-sm:hover{background:rgba(235,207,133,.12)}
+
+  .warn{margin-top:24px}
+  .layout{display:grid;grid-template-columns:300px minmax(0,1fr);gap:32px;align-items:start;margin-top:24px}
+  .side{position:sticky;top:96px;display:flex;flex-direction:column;gap:14px;max-height:calc(100vh - 116px);overflow-y:auto;scrollbar-width:thin}
+  .fab{position:static;transform:none;flex:none;width:100%;height:56px;font-size:16.5px}
+  .fab:hover{filter:brightness(1.04)}
+  .stats,.tools{margin:0}
+  .stats{gap:8px}
+  .stat{padding:12px 10px 10px}
+  .stat span{font-size:12.5px;white-space:nowrap}
+  .filters{flex-direction:column;overflow:visible;margin:0;padding:8px;gap:2px;background:#fff;border:1px solid var(--line);border-radius:var(--r)}
+  .fchip{display:flex;align-items:center;justify-content:space-between;gap:10px;height:44px;padding:0 10px 0 14px;border:0;border-radius:12px;background:none;text-align:left;transition:background .15s}
+  .fchip:hover{background:var(--bg)}
+  .fchip[aria-pressed="true"]{background:var(--em);color:#fff}
+  .fchip .fc,.fchip .fc.opt{display:inline-block;min-width:30px;padding:2px 9px;border-radius:999px;background:var(--bg);color:var(--muted);font-size:13px;font-weight:800;text-align:center}
+  .fchip .fc::before,.fchip .fc::after{content:none}
+  .fc-bad.has .fc{background:#FDEDE8;color:var(--bad)}
+  .fchip[aria-pressed="true"] .fc{background:rgba(255,255,255,.18);color:#fff}
+
+  .cat{margin-top:0}
+  .cat + .cat{margin-top:30px}
+  .cat-hd{margin:0 4px 12px}
+  .cat-hd h2{font-size:27px}
+  .cat-hd span{font-size:14px}
+  .items{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px;background:none;border:0;border-radius:0;overflow:visible;box-shadow:none}
+  .item,.item:last-child{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 14px;box-shadow:0 10px 24px -22px rgba(27,39,36,.6);transition:border-color .2s,box-shadow .2s}
+  .item.off{background:#FBF8F3}
+  .item:hover{border-color:var(--gold-l);box-shadow:0 14px 30px -22px rgba(140,106,31,.7)}
+  .item .open:hover .nm b{color:var(--em)}
+  .th{width:72px;height:72px}
+  .items > .empty{grid-column:1/-1;background:#fff;border:1px dashed var(--line);border-radius:16px}
+  #list > .empty{margin-top:0!important;background:#fff;border:1px dashed var(--line);border-radius:var(--r)}
+
+  .panel{display:grid;grid-template-columns:1fr 1fr;column-gap:12px;margin-top:36px;padding:22px 24px}
+  .panel h2,.panel p{grid-column:1/-1}
+  .radio{margin-top:0}
+  .radio:hover{border-color:var(--gold-l)}
+
+  .toast{bottom:28px}
+  .login{margin-top:90px;padding:34px 30px}
+
+  /* tahrirlash: chapda rasm, o'ngda maydonlar */
+  dialog.ed{max-width:980px}
+  .ed-hd{padding:16px 28px}
+  .ed-bd{grid-template-columns:320px minmax(0,1fr);gap:28px;align-items:start;padding:24px 28px}
+  .ph-col{position:sticky;top:96px}
+  .photo-box{max-width:none}
+  .photo-box.full img{max-height:52vh}
+  .ed-ft{padding:14px 28px}
+  .ed-ft .btn-pri{flex:0 0 260px;margin-left:auto}
+  .x:hover{background:rgba(255,255,255,.22)}
+}
 </style>
 </head>
 <body>
@@ -216,15 +284,21 @@ details.more h3{margin:0 0 8px;font-size:13px;font-weight:800;letter-spacing:.14
     Serverda ma’lumotlar uchun “volume” ulanmagan — sayt qayta deploy qilinganda admin paneldagi o’zgarishlar o’chib ketadi.
     README’dagi “Admin panel” bo’limiga qarang (Dokploy → Advanced → Volumes).
   </div>
-  <div class="stats">
-    <div class="stat"><b id="sTotal">0</b><span>Jami taom</span></div>
-    <div class="stat"><b id="sOn">0</b><span>Bor</span></div>
-    <div class="stat bad"><b id="sOff">0</b><span>Tugagan</span></div>
-  </div>
-  <div class="tools">
-    <input class="inp" id="search" type="search" placeholder="Taom qidirish…" autocomplete="off">
-  </div>
-  <div class="filters" id="filters"></div>
+  <div class="layout">
+    <!-- Kompyuterda chap tomonda yopishib turadigan panel; telefonda oddiy tartibda -->
+    <aside class="side">
+      <button class="btn btn-gold fab" id="addBtn" type="button" hidden><svg aria-hidden="true"><use href="#plus"/></svg>Yangi taom qo’shish</button>
+      <div class="stats">
+        <div class="stat"><b id="sTotal">0</b><span>Jami taom</span></div>
+        <div class="stat"><b id="sOn">0</b><span>Bor</span></div>
+        <div class="stat bad"><b id="sOff">0</b><span>Tugagan</span></div>
+      </div>
+      <div class="tools">
+        <input class="inp" id="search" type="search" placeholder="Taom qidirish…" autocomplete="off">
+      </div>
+      <div class="filters" id="filters"></div>
+    </aside>
+    <div class="content">
   <div id="list"></div>
 
   <section class="panel">
@@ -233,9 +307,9 @@ details.more h3{margin:0 0 8px;font-size:13px;font-weight:800;letter-spacing:.14
     <label class="radio"><input type="radio" name="soldOut" value="show"><div><b>Kulrang, “Tugadi” belgisi bilan</b><span>Taom bo’lim oxirida, rasmi oq-qora ko’rinadi</span></div></label>
     <label class="radio"><input type="radio" name="soldOut" value="hide"><div><b>Butunlay yashirilsin</b><span>Mijozlar umuman ko’rmaydi</span></div></label>
   </section>
+    </div>
+  </div>
 </main>
-
-<button class="btn btn-gold fab" id="addBtn" type="button" hidden><svg aria-hidden="true"><use href="#plus"/></svg>Yangi taom qo’shish</button>
 
 <!-- Taomni qo'shish / tahrirlash -->
 <dialog class="ed" id="ed">
@@ -245,16 +319,17 @@ details.more h3{margin:0 0 8px;font-size:13px;font-weight:800;letter-spacing:.14
       <button class="x" type="button" id="edClose" aria-label="Yopish"><svg aria-hidden="true"><use href="#x"/></svg></button>
     </div>
     <div class="ed-bd">
-      <div>
+      <div class="ph-col">
         <div class="photo-box" id="photoBox"><svg aria-hidden="true"><use href="#cloche"/></svg></div>
         <div class="btns" style="margin-top:10px">
           <label class="btn btn-pri" for="file"><svg aria-hidden="true"><use href="#cam"/></svg>Rasm tanlash</label>
           <button class="btn" type="button" id="imgRemove">Olib tashlash</button>
         </div>
         <input id="file" type="file" accept="image/*" hidden>
+        <label class="chk"><input type="checkbox" id="fFull"><div><b>Rasm kesilmasin — to’liq ko’rinsin</b><span>Odatda rasm chiroyli bo’lishi uchun chetlari kesiladi</span></div></label>
       </div>
-      <label class="chk"><input type="checkbox" id="fFull"><div><b>Rasm kesilmasin — to’liq ko’rinsin</b><span>Odatda rasm chiroyli bo’lishi uchun chetlari kesiladi</span></div></label>
 
+      <div class="fields">
       <label class="f">Kategoriya
         <select class="inp" id="fCat"></select>
       </label>
@@ -301,6 +376,7 @@ details.more h3{margin:0 0 8px;font-size:13px;font-weight:800;letter-spacing:.14
         </div>
       </div>
       <div class="msg err" id="edErr" hidden></div>
+      </div>
     </div>
     <div class="ed-ft">
       <button class="btn btn-danger" type="button" id="edDelete" aria-label="Taomni o’chirish"><svg aria-hidden="true"><use href="#trash"/></svg></button>
@@ -390,9 +466,10 @@ details.more h3{margin:0 0 8px;font-size:13px;font-weight:800;letter-spacing:.14
     MENU.categories.forEach(c => c.items.forEach(it => { total++; if (it.off) off++; }));
     $("#sTotal").textContent = total; $("#sOn").textContent = total - off; $("#sOff").textContent = off;
 
-    $("#filters").innerHTML = '<button class="fchip" type="button" data-f="" aria-pressed="' + (!filterCat) + '">Hammasi</button>' +
-      '<button class="fchip" type="button" data-f="__off" aria-pressed="' + (filterCat === "__off") + '">Tugaganlar (' + off + ')</button>' +
-      MENU.categories.map(c => '<button class="fchip" type="button" data-f="' + esc(c.id) + '" aria-pressed="' + (filterCat === c.id) + '">' + esc(c.title.uz) + '</button>').join("");
+    /* soni: telefonda faqat "Tugaganlar (2)", kompyuterda har birida o'ng tomonda */
+    $("#filters").innerHTML = '<button class="fchip" type="button" data-f="" aria-pressed="' + (!filterCat) + '">Hammasi<span class="fc opt">' + total + '</span></button>' +
+      '<button class="fchip fc-bad' + (off ? " has" : "") + '" type="button" data-f="__off" aria-pressed="' + (filterCat === "__off") + '">Tugaganlar<span class="fc">' + off + '</span></button>' +
+      MENU.categories.map(c => '<button class="fchip" type="button" data-f="' + esc(c.id) + '" aria-pressed="' + (filterCat === c.id) + '">' + esc(c.title.uz) + '<span class="fc opt">' + c.items.length + '</span></button>').join("");
 
     const q = query.trim().toLowerCase().replace(/[’'ʻʼ‘`]/g, "");
     let html = "";

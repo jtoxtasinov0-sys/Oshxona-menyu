@@ -9,6 +9,7 @@ NFC stiker va QR kod orqali telefonda ochiladigan restoran menyusi + **admin pan
 - Rasmlar: [Pexels](https://www.pexels.com/license/) (bepul litsenziya) yoki admin paneldan yuklangan o’z rasmlaringiz
 - **Admin panel** (`/admin`): tugagan taomni bir bosishda “Tugadi” qilish va qaytarish, yangi taom qo’shish
   (telefondan rasm bilan), narx/nomni o’zgartirish, tartibini almashtirish, o’chirish
+  — telefonda ham, kompyuterda ham qulay (kompyuterda chapda boshqaruv paneli, taomlar 2 ustunda)
 
 ### Fayllar
 
