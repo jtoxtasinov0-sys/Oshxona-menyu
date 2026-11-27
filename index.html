@@ -59,7 +59,8 @@ a{color:inherit}
 .sprite{position:absolute;width:0;height:0;overflow:hidden}
 
 /* ---------- Header ---------- */
-.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:max(18px,env(safe-area-inset-top));padding-bottom:14px;position:relative;z-index:40}
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 12px;padding-top:max(18px,env(safe-area-inset-top));position:relative;z-index:40}
+.tools{flex:1 1 100%;min-width:0}
 .brand{display:flex;align-items:center;gap:12px;min-width:0}
 .logo{width:52px;height:52px;flex:none;filter:drop-shadow(0 6px 10px rgba(140,106,31,.3))}
 .brand h1{margin:0;font:700 27px/1.05 var(--serif);letter-spacing:.2px;color:var(--em-d);white-space:nowrap}
@@ -132,6 +133,9 @@ a{color:inherit}
 .chip.on{background:var(--em);border-color:var(--em);color:#fff;box-shadow:0 8px 18px -10px rgba(15,91,75,.85)}
 .chip.on .pic{box-shadow:0 0 0 2px var(--gold-l)}
 .chip.dim{opacity:.38}
+/* sig'sa — markazda, sig'masa — chapdan aylantiriladi */
+.chip:first-child{margin-left:auto}
+.chip:last-child{margin-right:auto}
 
 /* ---------- Sections ---------- */
 .sec{padding-top:34px;scroll-margin-top:calc(var(--nav-h) + 6px)}
@@ -148,7 +152,8 @@ a{color:inherit}
 /* rasm */
 .pic{position:relative;flex:none;margin:0;overflow:hidden;background:radial-gradient(circle at 35% 30%,#fff,var(--sand) 70%);color:var(--gold);isolation:isolate}
 .pic .ph{position:absolute;inset:0;margin:auto;width:40%;height:40%;max-width:96px;max-height:96px;opacity:.7;z-index:0}
-.pic img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s var(--ease)}
+.pic picture{display:contents}
+.pic img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s var(--ease),transform .8s var(--ease)}
 .pic img.ok{opacity:1}
 .round{border-radius:50%}
 
@@ -258,6 +263,120 @@ a{color:inherit}
   .hero h2{font-size:32px}
   .hero-img{right:8px;width:200px;height:200px}
 }
+
+/* ---------- Planshet: 2 ustun ---------- */
+@media (min-width:720px){
+  .wrap,.cats-in{max-width:880px;padding-left:24px;padding-right:24px}
+  .top{padding-bottom:24px}
+  .tools{display:flex;align-items:center;gap:12px}
+  .langs{flex:none;display:flex;margin:0}
+  .langs button{padding:0 16px}
+  .search{flex:1;min-width:0;margin:0}
+
+  .hero-card{min-height:250px;padding:34px 38px}
+  .hero-img{right:40px;width:220px;height:220px}
+
+  .grid{display:flex;flex-wrap:wrap;justify-content:center;gap:30px 24px;margin-top:26px}
+  .grid > .card{width:calc((100% - 24px) / 2)}
+  .grid > .card.feat{width:100%}
+
+  /* Tavsiya kartochka: rasm chapda, matn o'ngda */
+  .card.feat{flex-direction:row;min-height:440px;margin-top:10px}
+  .card.feat .media{flex:0 0 54%;border-radius:calc(var(--r) - 2px) 0 0 calc(var(--r) - 2px)}
+  .card.feat .media::after{height:26%}
+  .card.feat .photo{position:absolute;inset:0;height:100%;aspect-ratio:auto}
+  /* "To'liq" rasm (Osh): kesilmaydi, o'z nisbatida, balandligi ekranga sig'adi */
+  .card.feat.c-full{min-height:0}
+  .card.feat.c-full .media{--hmax:min(620px,76vh);flex-basis:min(58%,calc(var(--hmax) * (var(--ar,3 / 4))));display:flex;flex-direction:column;justify-content:center;background:#16231F}
+  .card.feat.c-full .photo{position:relative;inset:auto;height:auto;aspect-ratio:3/4}
+  .card.feat .body{justify-content:center;padding:40px 44px}
+  .card.feat h3{font-size:36px;margin-bottom:10px}
+  .card.feat p{font-size:17.5px;margin-bottom:26px;max-width:44ch}
+  .card.feat .buy{margin-top:0}
+  .card.feat .price{font-size:29px;padding:10px 22px}
+
+  .promo{padding:28px 210px 28px 32px;min-height:160px}
+  .promo b{font-size:26px}
+  .promo .pic{right:32px;width:160px;height:160px}
+
+  .info{grid-template-columns:repeat(3,1fr)}
+  .info li{flex-direction:column;align-items:flex-start;gap:12px}
+  .foot-btns{grid-template-columns:repeat(2,minmax(0,250px));justify-content:center;margin-top:22px}
+}
+
+/* ---------- Kompyuter: 3 ustun, keng sahifa ---------- */
+@media (min-width:1024px){
+  .wrap,.cats-in{max-width:1240px;padding-left:36px;padding-right:36px}
+  .top{flex-wrap:nowrap;gap:24px;padding-top:28px;padding-bottom:28px}
+  .tools{flex:0 1 auto}
+  .search{flex:0 1 340px}
+  .logo{width:60px;height:60px}
+  .brand h1{font-size:32px}
+  .status{font-size:15px}
+
+  .hero-card{min-height:340px;padding:50px 60px}
+  .hero-txt{max-width:min(600px,calc(100% - 340px))}
+  .eyebrow{font-size:13px}
+  .hero h2{font-size:52px;margin:14px 0 12px}
+  .hero p{font-size:18.5px;margin-bottom:26px}
+  .hero .btn-gold{height:54px;padding:0 28px;font-size:16.5px}
+  .hero-img{right:80px;width:270px;height:270px}
+
+  .cats{margin-top:24px}
+  .sec{padding-top:52px}
+  .sec ~ .sec::before{margin-bottom:44px}
+  .sec-no{font-size:20px}
+  .sec-hd h2{font-size:46px}
+  .sec-count{font-size:14.5px;padding:6px 14px}
+  .sec-sub{font-size:17px;margin-top:10px}
+
+  .grid{gap:40px 28px;margin-top:32px}
+  .grid > .card{width:calc((100% - 56px) / 3)}
+  .grid > .card.feat{width:100%}
+  .photo{aspect-ratio:4/5}
+  .card .body{padding:18px 22px 22px}
+  .card h3{font-size:25px}
+
+  .card.feat{min-height:520px}
+  .card.feat .media{flex-basis:57%}
+  .card.feat .body{padding:56px 64px}
+  .card.feat h3{font-size:48px;margin-bottom:14px}
+  .card.feat p{font-size:19px;margin-bottom:30px}
+  .card.feat .price{font-size:32px;padding:12px 26px}
+  .card.feat .price small{font-size:19px}
+  .card.feat .unit{font-size:18px}
+  .ribbon{font-size:14.5px;padding:8px 18px 8px 14px}
+
+  .promo{margin-top:52px;padding:38px 290px 38px 48px;min-height:190px}
+  .promo small{font-size:13px}
+  .promo b{font-size:32px;margin:10px 0 6px}
+  .promo span{font-size:17px}
+  .promo .pic{right:64px;width:190px;height:190px}
+
+  .foot{margin-top:80px;padding-top:48px}
+  .foot-brand .logo{width:54px;height:54px}
+  .foot-brand b{font-size:26px}
+  .info{gap:16px;margin-top:28px}
+  .info li{flex-direction:row;align-items:center;padding:18px 20px}
+  .totop{right:28px;bottom:28px}
+}
+@media (min-width:1500px){
+  .wrap,.cats-in{max-width:1320px}
+}
+
+/* Sichqoncha bilan: yengil hover effektlari */
+@media (hover:hover) and (pointer:fine){
+  .card.rv{transition:opacity .7s var(--ease) var(--d,0ms),transform .7s var(--ease) var(--d,0ms),box-shadow .35s var(--ease)}
+  .card:not(.off):hover{box-shadow:0 2px 4px rgba(27,39,36,.06),0 30px 50px -26px rgba(27,39,36,.5)}
+  .card.feat:not(.off):hover{box-shadow:0 2px 4px rgba(27,39,36,.06),0 34px 60px -28px rgba(140,106,31,.75)}
+  .card:not(.off):hover .media img{transform:scale(1.045)}
+  .chip{transition:background .25s,color .25s,border-color .25s,box-shadow .25s,opacity .25s}
+  .chip:not(.on):hover{border-color:var(--gold-l);box-shadow:0 6px 16px -12px rgba(140,106,31,.7)}
+  .langs button:not([aria-pressed="true"]):hover{background:var(--sand)}
+  .btn-gold:hover:not(:active){transform:translateY(-1px)}
+  .btn-ghost:hover{background:rgba(235,207,133,.1)}
+  .totop:hover{transform:translateY(-2px)}
+}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .rv{opacity:1;transform:none;transition:none}
@@ -305,16 +424,15 @@ a{color:inherit}
       <div class="status" id="status"><i></i><span></span></div>
     </div>
   </div>
+  <div class="tools">
+    <div class="langs" id="langs" role="group" data-i18n-aria="lang"></div>
+    <label class="search">
+      <svg aria-hidden="true"><use href="#search"/></svg>
+      <input id="q" type="search" autocomplete="off" enterkeyhint="search" data-i18n-ph="search" data-i18n-aria="search">
+      <button class="clear" id="qClear" type="button" data-i18n-aria="clear" hidden><svg aria-hidden="true"><use href="#x"/></svg></button>
+    </label>
+  </div>
 </header>
-
-<div class="wrap">
-  <div class="langs" id="langs" role="group" data-i18n-aria="lang"></div>
-  <label class="search">
-    <svg aria-hidden="true"><use href="#search"/></svg>
-    <input id="q" type="search" autocomplete="off" enterkeyhint="search" data-i18n-ph="search" data-i18n-aria="search">
-    <button class="clear" id="qClear" type="button" data-i18n-aria="clear" hidden><svg aria-hidden="true"><use href="#x"/></svg></button>
-  </label>
-</div>
 
 <section class="hero wrap" id="hero">
   <div class="hero-card pattern">
@@ -483,6 +601,8 @@ function imgOk(img){
     const r = img.naturalWidth + " / " + img.naturalHeight;
     RATIO[img.getAttribute("src")] = r;
     img.parentNode.style.aspectRatio = r;
+    const card = img.closest(".card");          // kompyuterda tavsiya kartochka eni shu nisbatdan
+    if (card) card.style.setProperty("--ar", r);
   }
 }
 
@@ -519,30 +639,35 @@ function imgOk(img){
     if (full || s.z || s.pos) return base + "&w=" + Math.min(1400, Math.round(w * 2 * (s.z || 1)));
     return base + "&fit=crop&w=" + Math.round(w * 2) + "&h=" + Math.round(h * 2);
   }
-  function pic(spec, w, h, alt, cls, eager, full){
+  /* wide: kompyuterda (720px+) kesilmagan keng rasm — tavsiya kartochkada rasm chapda keng turadi */
+  function pic(spec, w, h, alt, cls, eager, full, wide){
     if (!spec) return '<figure class="pic ' + cls + '"><svg class="ph" aria-hidden="true"><use href="#cloche"/></svg></figure>';
     const s = typeof spec === "string" ? { id: spec } : spec;
     const url = src(s, w, h, full);
     let st = "";
     if (s.pos && !full) st += "object-position:" + s.pos + ";";
     if (s.z && !full) st += "transform:scale(" + s.z + ");transform-origin:" + (s.o || "50% 50%") + ";";
-    return '<figure class="pic ' + cls + '"' + (full && RATIO[url] ? ' style="aspect-ratio:' + RATIO[url] + '"' : "") + '>' +
-      '<svg class="ph" aria-hidden="true"><use href="#cloche"/></svg>' +
-      '<img src="' + esc(url) + '" alt="' + esc(alt) + '"' + (full ? " data-full" : ' width="' + w + '" height="' + h + '"') +
+    const img = '<img src="' + esc(url) + '" alt="' + esc(alt) + '"' + (full ? " data-full" : ' width="' + w + '" height="' + h + '"') +
       (eager ? ' fetchpriority="high"' : ' loading="lazy"') + ' decoding="async"' +
       (st ? ' style="' + st + '"' : "") +
-      ' onload="imgOk(this)" onerror="this.remove()">' +
+      ' onload="imgOk(this)" onerror="this.remove()">';
+    const wideUrl = wide && !full && !/^\/|^https?:/.test(s.id || "") ? src({ id: s.id }, 700, 0, true) : "";
+    return '<figure class="pic ' + cls + '"' + (full && RATIO[url] ? ' style="aspect-ratio:' + RATIO[url] + '"' : "") + '>' +
+      '<svg class="ph" aria-hidden="true"><use href="#cloche"/></svg>' +
+      (wideUrl ? '<picture><source media="(min-width:720px)" srcset="' + esc(wideUrl) + '">' + img + '</picture>' : img) +
       '</figure>';
   }
   const origHTML = it => lang !== DEFAULT_LANG ? '<span class="orig">' + esc(it.n[DEFAULT_LANG]) + '</span>' : "";
   const searchKey = (it, cat) => " " + norm([tr(it.n), it.n[DEFAULT_LANG], tr(it.d), tr(cat.title), cat.title[DEFAULT_LANG]].join(" "));
 
   function cardHTML(it, i, cat){
-    const name = tr(it.n), feat = !!it.feat, desc = tr(it.d);
+    const name = tr(it.n), feat = !!it.feat, desc = tr(it.d), full = !!it.full;
+    const ar = full && it.img ? RATIO[src(it.img, 520, 693, true)] : "";
     const tag = it.tag && !it.off && TAGS[it.tag] ? '<span class="tag t-' + it.tag + '">' + esc(tr(TAGS[it.tag])) + '</span>' : "";
-    return '<article class="card' + (feat ? " feat" : "") + (it.off ? " off" : "") + ' rv" data-q="' + esc(searchKey(it, cat)) + '">' +
+    return '<article class="card' + (feat ? " feat" : "") + (full ? " c-full" : "") + (it.off ? " off" : "") + ' rv"' +
+      (ar ? ' style="--ar:' + esc(ar) + '"' : "") + ' data-q="' + esc(searchKey(it, cat)) + '">' +
       (feat && it.ribbon ? '<span class="ribbon"><svg aria-hidden="true"><use href="#star"/></svg>' + esc(tr(it.ribbon)) + '</span>' : "") +
-      '<div class="media">' + pic(it.img, 520, 693, name, "photo" + (it.full ? " full" : ""), false, !!it.full) +
+      '<div class="media">' + pic(it.img, 520, 693, name, "photo" + (full ? " full" : ""), false, full, feat) +
         '<span class="num">' + (i + 1) + '</span>' + tag +
         (it.off ? '<span class="stamp">' + esc(ui("soldOut")) + '</span>' : "") + '</div>' +
       '<div class="body">' + origHTML(it) + '<h3>' + esc(name) + '</h3>' + (desc ? '<p>' + esc(desc) + '</p>' : "") + priceHTML(it) + '</div></article>';
@@ -576,12 +701,12 @@ function imgOk(img){
         '<h2 id="h-' + esc(cat.id) + '">' + esc(tr(cat.title)) + '</h2><span class="sec-count">' + esc(ui("count")(cat.items.length)) + '</span></div>' +
         (sub ? '<p class="sec-sub rv">' + esc(sub) + '</p>' : "") + body + '</section>';
       if (PROMO && PROMO.after === cat.id) {
-        html += '<div class="wrap promo-wrap"><aside class="promo rv"><small>' + esc(ui("promoLabel")) + '</small><b>' + esc(ui("promoTitle")) + '</b><span>' + esc(ui("promoText")) + '</span>' + pic(PROMO.img, 144, 144, "", "round") + '</aside></div>';
+        html += '<div class="wrap promo-wrap"><aside class="promo rv"><small>' + esc(ui("promoLabel")) + '</small><b>' + esc(ui("promoTitle")) + '</b><span>' + esc(ui("promoText")) + '</span>' + pic(PROMO.img, 190, 190, "", "round") + '</aside></div>';
       }
     });
     main.innerHTML = html;
     catsIn.innerHTML = chips;
-    $("#heroImg").innerHTML = pic(HERO_IMG, 190, 190, ui("heroTitle").replace(/<[^>]+>/g, ""), "round", true);
+    $("#heroImg").innerHTML = pic(HERO_IMG, 280, 280, ui("heroTitle").replace(/<[^>]+>/g, ""), "round", true);
     $$(".pic img").forEach(img => { if (img.complete && img.naturalWidth) imgOk(img); });
 
     sections = $$(".sec", main);
