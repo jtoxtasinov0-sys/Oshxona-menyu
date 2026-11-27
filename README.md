@@ -3,6 +3,8 @@
 NFC stiker va QR kod orqali telefonda ochiladigan restoran menyusi + **admin panel**.
 
 - 4 til: **o’zbekcha** (asosiy), русский, 한국어, English. Tanlangan til eslab qolinadi
+- Telefon, planshet va kompyuter ekraniga moslashadi: kompyuterda keng sahifa, 3 ustunli taomlar,
+  tavsiya taomlar (Osh va boshqalar) katta rasm bilan yonma-yon ko’rinishda
 - Narxlar Koreya vonida (₩)
 - Rasmlar: [Pexels](https://www.pexels.com/license/) (bepul litsenziya) yoki admin paneldan yuklangan o’z rasmlaringiz
 - **Admin panel** (`/admin`): tugagan taomni bir bosishda “Tugadi” qilish va qaytarish, yangi taom qo’shish
